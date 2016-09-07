@@ -1,0 +1,10 @@
+functionalAndIntegrationTests/CQBaseIntegrationTest$1.class
+resources/utils/DateUtils.class
+resources/utils/DbUtils.class
+resources/utils/AnswerUtils.class
+resources/utils/FileUtils.class
+resources/Application.class
+functionalAndIntegrationTests/FunctionalTests/RegisterTests.class
+resources/pages/WelcomePage.class
+resources/utils/PropertyUtils.class
+functionalAndIntegrationTests/CQBaseIntegrationTest.class
