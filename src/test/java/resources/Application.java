@@ -12,7 +12,15 @@ public class Application {
     public void setTechnicalSupport(String technicalSupport) {
         TechnicalSupport = technicalSupport;
     }
-
+    
+    public String getFirstName()
+    {
+        return FirstName;
+    }
+    public void setFirstName(String firstName) {
+        FirstName = firstName;
+    }
+    
     public String getPlanInformation() {
         return PlanInformation;
     }
@@ -21,15 +29,10 @@ public class Application {
         PlanInformation = planInformation;
     }
 
-    public String TechnicalSupport = "";
-    public String PlanInformation = "";
-    
-    
-    
-    
-    
-    
-    
+    public String TechnicalSupport;
+    public String PlanInformation;
+    public String FirstName;
+
     
     
 }

@@ -16,7 +16,10 @@ public class WelcomePage extends FluentPage {
     @FindBy(xpath = "html/body/div[3]/footer/div[1]/div/section[2]/div/p/img[1]") FluentWebElement QuestionsButton;
     @FindBy(xpath = "html/body/div[3]/footer/div[1]/div/section[2]/div/div/div[1]/p[2]/span") FluentWebElement TechnicalSupport;
     @FindBy(xpath = "html/body/div[3]/footer/div[1]/div/section[2]/div/div/div[1]/p[3]/span") FluentWebElement PlanInformation;
-    
+    @FindBy(xpath = "//*[contains(text(),'Register')]")
+    FluentWebElement RegisterButton;
+    @FindBy(xpath = "//*[contains(text(),'Login')]")
+    FluentWebElement LoginButton;
     
 
     public String getUrl() {
