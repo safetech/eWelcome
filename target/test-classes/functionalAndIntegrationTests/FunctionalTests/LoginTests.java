@@ -25,7 +25,7 @@ public class LoginTests extends CQBaseIntegrationTest {
 
     @Test
     public void eWelcomeRegistrationTest(){
-
+ 
         goTo(welcomePage);
         signInPage.fillAndSubmit(app);
 

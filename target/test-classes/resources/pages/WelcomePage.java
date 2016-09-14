@@ -1,6 +1,5 @@
 package resources.pages;
 
-import org.fluentlenium.core.FluentPage;
 import org.fluentlenium.core.domain.FluentWebElement;
 import org.openqa.selenium.support.FindBy;
 import resources.Application;
@@ -9,7 +8,7 @@ import resources.utils.PropertyUtils;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
 
-public class WelcomePage extends FluentPage {
+public class WelcomePage extends WizardPage {
 
     @FindBy(xpath = "//*[contains(text(),'Welcome!')]")
     FluentWebElement pageTitle;
