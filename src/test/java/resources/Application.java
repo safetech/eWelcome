@@ -32,7 +32,13 @@ public class Application {
     public String TechnicalSupport;
     public String PlanInformation;
     public String FirstName;
+    public String UserName;
 
-    
-    
+    public String getUserName() {
+        return UserName;
+    }
+
+    public void setUserName(String userName) {
+        UserName = userName;
+    }
 }

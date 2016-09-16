@@ -9,11 +9,13 @@ import org.junit.Test;
 import resources.Application;
 import resources.pages.SignInPage;
 import resources.pages.WelcomePage;
+import resources.pages.YourPlanPage;
 
-public class LoginTests extends CQBaseIntegrationTest {
+public class ViewPlanDetailsTests extends CQBaseIntegrationTest {
 
     @Page public WelcomePage welcomePage;
     @Page public SignInPage signInPage;
+    @Page public YourPlanPage yourPlanPage;
     public Faker faker;
 
     @Before
@@ -23,11 +25,13 @@ public class LoginTests extends CQBaseIntegrationTest {
     }
 
     @Test
-    public void SignIn(){
-        app.setUserName("kermit");
+    public void SignInToViewPlans(){
+ 
         goTo(welcomePage);
         signInPage.fillAndSubmit(app);
-                
+        yourPlanPage.fillAndSubmit(app);
+
+
     }
 }
  

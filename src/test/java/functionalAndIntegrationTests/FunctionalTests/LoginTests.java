@@ -14,7 +14,6 @@ public class LoginTests extends CQBaseIntegrationTest {
 
     @Page public WelcomePage welcomePage;
     @Page public SignInPage signInPage;
-
     public Faker faker;
 
     @Before
@@ -24,12 +23,11 @@ public class LoginTests extends CQBaseIntegrationTest {
     }
 
     @Test
-    public void eWelcomeRegistrationTest(){
- 
+    public void SignIn(){
+        app.setUserName("kermit");
         goTo(welcomePage);
         signInPage.fillAndSubmit(app);
-
-        
+                
     }
 }
  

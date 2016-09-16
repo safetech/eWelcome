@@ -19,23 +19,26 @@ public class SignInPage extends WelcomePage{
     public void fillAndSubmit(Application app){
         LoginButton.click();
         isAt();
-        fill(userName).with("swedishchef");
+        fill(userName).with(app.getUserName());
         fill(userPassword).with("P@ssword1");
         SignIn.click();
 
-        waitForElementPresent(10, "//*[@id='authQuestionWrapper']/div[1]/div/h1");
-        
-        if(UnrecognizedDevice.getText().equals("Unrecognized Device")){
-        WebElement question = getDriver().findElement(By.xpath(".//*[@id='userCommand']/div[1]/div/div/div[1]/div/div/label"));
+        try {
+            waitForElementPresent(10, "//*[@id='authQuestionWrapper']/div[1]/div/h1");
+            if(UnrecognizedDevice.getText().equals("Unrecognized Device")){
+                WebElement question = getDriver().findElement(By.xpath(".//*[@id='userCommand']/div[1]/div/div/div[1]/div/div/label"));
 
-        String ans = question.getText().contains("friend")?"friend1":
-            question.getText().contains("phone")?"phone1":"";
-            WebElement answer = getDriver().findElement(By.xpath(".//*[@id='challengeQuestionList[0].userAnswer']"));
-            answer.sendKeys(ans);
-            WebElement nextButton=getDriver().findElement(By.id("authQuesSubmitButton"));
-            nextButton.click();
+                String ans = question.getText().contains("friend")?"friend1":question.getText().contains("phone")?"phone1":"color1";
+                WebElement answer = getDriver().findElement(By.xpath(".//*[@id='challengeQuestionList[0].userAnswer']"));
+                answer.sendKeys(ans);
+                WebElement nextButton=getDriver().findElement(By.id("authQuesSubmitButton"));
+                nextButton.click();
+            }
         }
-        
+        catch (Exception e)
+        {
+            
+        }
         
 
     }
