@@ -24,7 +24,7 @@ public class LoginTests extends CQBaseIntegrationTest {
 
     @Test
     public void SignIn(){
-        app.setUserName("kermit");
+        app.setUserName("Automation12");
         goTo(welcomePage);
         signInPage.fillAndSubmit(app);
                 

@@ -27,10 +27,6 @@ public class YourPlanPage extends WelcomePage{
         }
         isAt();
 
-        
-        
-        
-        
         int i=1;
         ArrayList<WebElement> plans = new ArrayList<>();
         try {
@@ -44,19 +40,7 @@ public class YourPlanPage extends WelcomePage{
         }
         for(WebElement plan : plans)
         {
-//            if(plan.getText().equals("Plan MW")){
-//                plan.click();
-//                availablePlans(plan.getText());
-//            }else if(plan.getText().equals("Plan OW")){
-//                plan.click();
-//                availablePlans(plan.getText());
-//            }else if(plan.getText().equals("Plan SW")){
-//                plan.click();
-//                availablePlans(plan.getText());
-//            }else if(plan.getText().equals("Plan F")){
-//                plan.click();
-//                availablePlans(plan.getText());
-//            }
+
             plan.click();
             availablePlans(plan.getText());
         }
@@ -65,6 +49,7 @@ public class YourPlanPage extends WelcomePage{
     public void isAt() {
         assertThat(pageTitle.getText(), equalTo("Your Plan"));
     }       
+   
     public void hasPlanHeaders() {
         assertThat(YourPlanStartDate.getText(), equalTo("Your Plan Start Date*"));
         assertThat(YourPlanDocuments.getText(), equalTo("Your Plan Documents"));
@@ -75,12 +60,16 @@ public class YourPlanPage extends WelcomePage{
         hasPlanHeaders();
         switch (PlanName){
             case "Plan MW":
+                
                 break;
             case "Plan OW":
+                
                 break;
             case "Plan SW":
+                
                 break;
             case "Plan F":
+                
                 break;
         }
         

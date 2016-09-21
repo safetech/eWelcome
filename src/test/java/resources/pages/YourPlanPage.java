@@ -49,6 +49,7 @@ public class YourPlanPage extends WelcomePage{
     public void isAt() {
         assertThat(pageTitle.getText(), equalTo("Your Plan"));
     }       
+   
     public void hasPlanHeaders() {
         assertThat(YourPlanStartDate.getText(), equalTo("Your Plan Start Date*"));
         assertThat(YourPlanDocuments.getText(), equalTo("Your Plan Documents"));

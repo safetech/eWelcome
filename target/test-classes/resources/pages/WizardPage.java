@@ -10,6 +10,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import resources.utils.AnswerUtils;
 
+import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
 
 import static org.hamcrest.CoreMatchers.equalTo;
@@ -92,6 +93,19 @@ public class WizardPage extends FluentPage {
         }
     }
 
+    public void closeSpecificBrowser(int Brow){
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        ArrayList<String> windows = new ArrayList<String> (getDriver().getWindowHandles());
+        String baseWindowHdl = getDriver().getWindowHandle();
+        getDriver().switchTo().window(windows.get(Brow));
+        getDriver().close();
+        getDriver().switchTo().window(baseWindowHdl);
+    }
+    
     protected void assertYesNoQuestion(FluentWebElement yesRadio, FluentWebElement noRadio, String answer) {
         switch (answer) {
             case YES:
