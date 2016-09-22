@@ -42,7 +42,15 @@ public class WizardPage extends FluentPage {
     public void waitForElementPresent(int numOfSeconds, String xpathLocator) {
         WebElement element = (new WebDriverWait(getDriver(), numOfSeconds))
                 .until(ExpectedConditions.presenceOfElementLocated(By.xpath(xpathLocator)));
+    }    
+    public void waitForSpecificSeconds(int numOfSeconds) {
+        try {
+            Thread.sleep(numOfSeconds*1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
+    
     
     public String getDtcApplicationId() {
         return this.dtcApplicationId;

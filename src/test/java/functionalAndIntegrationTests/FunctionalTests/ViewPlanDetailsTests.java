@@ -34,7 +34,7 @@ public class ViewPlanDetailsTests extends CQBaseIntegrationTest {
         goTo(welcomePage);
         signInPage.fillAndSubmit(app);
         plan_f_page.clickAndVerify(app);
-    } 
+    }
     @Ignore
     @Test
     public void SignInToVerifyPlanKTests(){
