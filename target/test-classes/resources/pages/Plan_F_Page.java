@@ -2,7 +2,6 @@ package resources.pages;
 
 import org.fluentlenium.core.domain.FluentWebElement;
 import org.openqa.selenium.support.FindBy;
-import resources.Application;
 
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -62,7 +61,7 @@ public class Plan_F_Page extends YourPlanPage{
 
     
     protected int TOTAL_POSSIBLE_QUESTION_COUNT = 2;
-    public void clickAndVerify(Application app){
+    public void clickAndVerify(){
         try {
             Thread.sleep(20000);
         } catch (InterruptedException e) {
@@ -74,6 +73,7 @@ public class Plan_F_Page extends YourPlanPage{
         if(Request.isEnabled())
             Request.click();
         
+      
         OutLineOfCoverage.click();        
         closeSpecificBrowser(1);
 
@@ -85,29 +85,12 @@ public class Plan_F_Page extends YourPlanPage{
 
         FileAClaim.click();
         closeSpecificBrowser(1);
-        
-        if(!PlanDocumentPlus.isDisplayed()){
-            assert(PlanDocumentContents.getText().equals("Your plan documents may not be up to date on this site because they are currently being delivered to you by mail. In order to update your documents online, please change your preference to \"online\" in the profile and preferences page."));
-            PlanDocumentMinus.click();
-        }
-        if(!OutlineOfCoverageMinus.isDisplayed()){
-            OutLineOfCoveragePlus.click();
-            assert(OutlineOfCoverageContents.getText().equals("Here you will find an outline of your plan benefits and the amount payable for those benefits for the year shown."));
-        }
-        if(!GuideToHealthMinus.isDisplayed()){
-            GuideToHealthPlus.click();
-            assert(GuideToHealthContents.getText().equals("This guide has the basics about Medicare and gives you information to help you understand Medicare Supplement Insurance plans."));
-        }
-        if(!PrivacyAuthorizationMinus.isDisplayed()){
-            PrivacyAuthorizationPlus.click();
-            assert(PrivacyAuthorizationContents.getText().equals("Information about your health insurance coverage cannot be given out without your permission. If you would like to allow someone of your choice to help you with your health insurance, you can use this form."));
-        }
-        if(!FileAClaimMinus.isDisplayed()){
-            FileAClaimPlus.click();
-            assert(YourOnlineAccountContent.isDisplayed() && 
-                    FileAClaimContents.getText().equals("Claim filing is easier than ever. This provides instructions on how to submit your claim for payment.") &&
-                    YourOnlineAccountContent.getText().equals("If you haven't yet, register for myAARPMedicare.com to see information about your claims, plan benefits and premium payments."));
-        }
+
+        verifyPlanDocumentsContents();
+        verifyOutlineOfCoverageDocumentsContents();
+        verifyGuideToHealthDocumentsContents();
+        verifyPrivacyAuthorizationDocumentsContents();
+        verifyFileAClaimDocumentsContents();
         
         myAArpMedicareLink.click();
         getDriver().switchTo().alert().dismiss();
@@ -125,33 +108,73 @@ public class Plan_F_Page extends YourPlanPage{
         AARPHealthAndWellnessLink.click();
         closeSpecificBrowser(1);
         DisclaimerLink.click();
+        waitForSpecificSeconds(1);  
         assert (DisclaimerContents.isDisplayed()&&(!DisclaimerContents.getText().isEmpty()));
         DisclaimerLink.click();
+        waitForSpecificSeconds(1);
         assert (!DisclaimerContents.isDisplayed());
         NurseHealthLinkMinus.click();
-
+        waitForSpecificSeconds(1);
         assert (SilverSneakersContents.isDisplayed() && SilverSneakersPlus.isDisplayed());
         SilverSneakersFitnessLink.click();
         getDriver().switchTo().alert().dismiss();
         SilverSneakersPlus.click();
+        waitForSpecificSeconds(1);
         SilverSneakersPlusLink.click();
         getDriver().switchTo().alert().dismiss();
         SilverSneakersDisclaimerLink.click();
-        assert (SilverSneakersDisclaimerContents.isDisplayed() && (!SilverSneakersDisclaimerContents.getText().equals("")));
+        waitForSpecificSeconds(1);
+        assert (SilverSneakersDisclaimerContents.isDisplayed() && (!SilverSneakersDisclaimerContents.getText().equals("")));        waitForSpecificSeconds(1);
         SilverSneakersDisclaimerLink.click();
+        waitForSpecificSeconds(1);
         assert( SilverSneakersMinus.isDisplayed());
         SilverSneakersMinus.click();
-        
+        waitForSpecificSeconds(1);
         assert (SavingsOnVisionContents.isDisplayed() && 
                 (!SavingsOnVisionContents.getText().equals("")) && 
                 SavingsOnVisionPlus.isDisplayed());
         SavingsOnVisionPlus.click();
+        waitForSpecificSeconds(1);
         AarpHealthcareVisionLink.click();
         closeSpecificBrowser(1);
         AarpVisionDisclaimerLink.click();
+        waitForSpecificSeconds(1);
         assert (AarpVisionDisclaimerContents.isDisplayed() && (!AarpVisionDisclaimerContents.getText().isEmpty()));
         QuestionsPlus.click();
-        assertThat( TechnicalSupport.getText(), equalTo("  1-866-388-9919"));
+        assertThat( TechnicalSupport.getText(), equalTo("1-866-388-9919"));
         
+    }
+
+    public void verifyPlanDocumentsContents(){
+        if(!PlanDocumentPlus.isDisplayed()){
+            assert(PlanDocumentContents.getText().equals("Your plan documents may not be up to date on this site because they are currently being delivered to you by mail. In order to update your documents online, please change your preference to \"online\" in the profile and preferences page."));
+            PlanDocumentMinus.click();
+        }
+    }    
+    public void verifyOutlineOfCoverageDocumentsContents(){
+        if(!OutlineOfCoverageMinus.isDisplayed()){
+            OutLineOfCoveragePlus.click();
+            assert(OutlineOfCoverageContents.getText().equals("Here you will find an outline of your plan benefits and the amount payable for those benefits for the year shown."));
+         }
+    }    
+    public void verifyGuideToHealthDocumentsContents(){
+        if(!GuideToHealthMinus.isDisplayed()){
+            GuideToHealthPlus.click();
+            assert(GuideToHealthContents.getText().equals("This guide has the basics about Medicare and gives you information to help you understand Medicare Supplement Insurance plans."));
+        }
+    }    
+    public void verifyPrivacyAuthorizationDocumentsContents(){
+        if(!PrivacyAuthorizationMinus.isDisplayed()){
+            PrivacyAuthorizationPlus.click();
+            assert(PrivacyAuthorizationContents.getText().equals("Information about your health insurance coverage cannot be given out without your permission. If you would like to allow someone of your choice to help you with your health insurance, you can use this form."));
+        }
+    }    
+    public void verifyFileAClaimDocumentsContents(){
+        if(!FileAClaimMinus.isDisplayed()){
+            FileAClaimPlus.click();
+            assert(YourOnlineAccountContent.isDisplayed() &&
+                    FileAClaimContents.getText().equals("Claim filing is easier than ever. This provides instructions on how to submit your claim for payment.") &&
+                    YourOnlineAccountContent.getText().equals("If you haven't yet, register for myAARPMedicare.com to see information about your claims, plan benefits and premium payments."));
+        }
     }
 }

@@ -23,12 +23,12 @@ public class WelcomePage extends WizardPage {
     
 
     public String getUrl() {
+        getDriver().manage().deleteAllCookies();
         return PropertyUtils.getProperty("ewelcome.urls");
     }
     
     
     public void fillAndSubmit(Application app){
-        
         isAt();
 
         QuestionsPlus.click();

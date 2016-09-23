@@ -38,18 +38,6 @@
             <version>1.7.12</version>
             <scope>test</scope>
         </dependency>
-        <!--<dependency>-->
-            <!--<groupId>org.testng</groupId>-->
-            <!--<artifactId>testng</artifactId>-->
-            <!--<version>6.9.9</version>-->
-            <!--<scope>test</scope>-->
-        <!--</dependency>-->
-        <!--<dependency>-->
-            <!--<groupId>org.fluentlenium</groupId>-->
-            <!--<artifactId>fluentlenium-core</artifactId>-->
-            <!--<version>0.13.1</version>-->
-            <!--<scope>test</scope>-->
-        <!--</dependency>-->
         <dependency>
             <groupId>com.oracle</groupId>
             <artifactId>ojdbc6</artifactId>
@@ -144,9 +132,22 @@
                 <browser>Firefox</browser>
             </properties>
 
+        </profile>        
+        <profile>
+            <id>Chrome</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <properties>
+                <browser>Chrome</browser>
+            </properties>
+
         </profile>
         <profile>
             <id>eWelcomeTest</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
             <properties>
                 <ewelcome.url>https://member.uhcinfo-tst.uhc.com/#/</ewelcome.url>
                 <db.stage.connection>jdbc:oracle:thin:@(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=dbsrt1046.uhc.com)(PORT=1521))(CONNECT_DATA=(SERVER=DEDICATED)(SERVICE_NAME=cmp0ts17svc.uhc.com)))</db.stage.connection>
