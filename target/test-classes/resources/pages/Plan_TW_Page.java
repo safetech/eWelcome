@@ -6,28 +6,19 @@ import org.openqa.selenium.support.FindBy;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
 
-public class Plan_NW_Page extends Plan_UW_Page{
-    @FindBy(xpath = "html/body/div[3]/div[1]/div[5]/div/div/div/div/div[2]/div[3]/div/div/div[3]/div[2]/div[3]/div[2]/a")FluentWebElement OutLineOfCoverage;
+public class Plan_TW_Page extends Plan_F_Page{
+
     @FindBy(xpath = "html/body/div[3]/div[1]/div[5]/div/div/div/div/div[2]/div[3]/div/div/div[3]/div[2]/div[3]/div[1]/img[1]")FluentWebElement OutLineOfCoveragePlus;
     @FindBy(xpath = "html/body/div[3]/div[1]/div[5]/div/div/div/div/div[2]/div[3]/div/div/div[3]/div[2]/div[3]/div[1]/img[2]")FluentWebElement OutlineOfCoverageMinus;
     @FindBy(xpath = "html/body/div[3]/div[1]/div[5]/div/div/div/div/div[2]/div[3]/div/div/div[3]/div[2]/div[3]/div[3]/p")FluentWebElement OutlineOfCoverageContents;
     @FindBy(xpath = "html/body/div[3]/div[1]/div[5]/div/div/div/div/div[2]/div[3]/div/div/div[1]/div[2]/div[2]")FluentWebElement YourPlanContents;
     @FindBy(xpath = "html/body/div[3]/div[1]/div[5]/div/div/div/div/div[2]/div[3]/div/div/div[1]/div[2]/div[2]")FluentWebElement YourPlanStartDateContents;
-    @FindBy(xpath = "html/body/div[3]/div[1]/div[5]/div/div/div/div/div[2]/div[3]/div/div/div[1]/div[2]/div[1]")FluentWebElement YourPlanNW;
+    @FindBy(xpath = "html/body/div[3]/div[1]/div[5]/div/div/div/div/div[2]/div[3]/div/div/div[1]/div[2]/div[1]")FluentWebElement YourPlanTW;
         public void clickAndVerify(){
-       isAt();
+        isAt();
         hasPlanHeaders();
             
         assert(Request.isDisplayed());
-        OutLineOfCoverage.click();
-        closeSpecificBrowser(1);
-        GuideToHealthPdf.click();
-        closeSpecificBrowser(1);
-        PrivacyAuthorizationPdf.click();
-        closeSpecificBrowser(1);
-        FileAClaimPdf.click();
-        closeSpecificBrowser(1);
-
         verifyPlanDocumentsContents();
         verifyOutlineOfCoverageDocumentsContents();
         verifyGuideToHealthDocumentsContents();
@@ -62,21 +53,6 @@ public class Plan_NW_Page extends Plan_UW_Page{
             assert (!DisclaimerContents.isDisplayed());
             NurseHealthLinkMinus.click();
             waitForSpecificSeconds(1);
-            assert (SilverSneakersContents.isDisplayed() && SilverSneakersPlus.isDisplayed());
-            SilverSneakersFitnessLink.click();
-            getDriver().switchTo().alert().dismiss();
-            SilverSneakersPlus.click();
-            waitForSpecificSeconds(1);
-            SilverSneakersPlusLink.click();
-            getDriver().switchTo().alert().dismiss();
-            SilverSneakersDisclaimerLink.click();
-            waitForSpecificSeconds(1);
-            assert (SilverSneakersDisclaimerContents.isDisplayed() && (!SilverSneakersDisclaimerContents.getText().equals("")));        waitForSpecificSeconds(1);
-            SilverSneakersDisclaimerLink.click();
-            waitForSpecificSeconds(1);
-            assert( SilverSneakersMinus.isDisplayed());
-            SilverSneakersMinus.click();
-            waitForSpecificSeconds(1);
             assert (SavingsOnVisionContents.isDisplayed() &&
                     (!SavingsOnVisionContents.getText().equals("")) &&
                     SavingsOnVisionPlus.isDisplayed());
@@ -93,14 +69,9 @@ public class Plan_NW_Page extends Plan_UW_Page{
             assertThat( TechnicalSupport.getText(), equalTo("1-866-388-9919"));
             QuestionsMinus.click();
     }
-    public void verifyOutlineOfCoverageDocumentsContents(){
-        if(!OutlineOfCoverageMinus.isDisplayed()){
-            OutLineOfCoveragePlus.click();
-            assert(OutlineOfCoverageContents.getText().equals("Here you will find an outline of your plan benefits and the amount payable for those benefits for the year shown."));
-        }
-    }
+
     public void isAt() {
-        assertThat(YourPlanNW.getText(), equalTo("AARP Basic Medicare Supplement Plan With Co-pymts NW"));
+        assertThat(YourPlanTW.getText(), equalTo("AARP Basic Medicare Supplement Plan TW"));
     }
 }
 

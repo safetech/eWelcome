@@ -6,10 +6,10 @@ import org.openqa.selenium.support.FindBy;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
 
-public class Plan_OW_Page extends Plan_UW_Page{
+public class Plan_XW_Page extends Plan_OW_Page{
     @FindBy(xpath = "html/body/div[3]/div[1]/div[5]/div/div/div/div/div[2]/div[3]/div/div/div[1]/div[2]/div[2]")FluentWebElement YourPlanContents;
     @FindBy(xpath = "html/body/div[3]/div[1]/div[5]/div/div/div/div/div[2]/div[3]/div/div/div[1]/div[2]/div[2]")FluentWebElement YourPlanStartDateContents;
-    @FindBy(xpath = "html/body/div[3]/div[1]/div[5]/div/div/div/div/div[2]/div[3]/div/div/div[1]/div[2]/div[1]")FluentWebElement YourPlanOW;
+    @FindBy(xpath = "html/body/div[3]/div[1]/div[5]/div/div/div/div/div[2]/div[3]/div/div/div[1]/div[2]/div[1]")FluentWebElement YourPlanXW;
     
     @FindBy(xpath = "html/body/div[3]/div[1]/div[5]/div/div/div/div/div[2]/div[3]/div/div/div[3]/div[2]/div[6]/div[3]/p")FluentWebElement WI_GuideToHealthContents;
     @FindBy(xpath = "html/body/div[3]/div[1]/div[5]/div/div/div/div/div[2]/div[3]/div/div/div[3]/div[2]/div[6]/div[2]/a")FluentWebElement WI_GuideToHealthPdf;
@@ -67,21 +67,6 @@ public class Plan_OW_Page extends Plan_UW_Page{
             assert (!DisclaimerContents.isDisplayed());
             NurseHealthLinkMinus.click();
             waitForSpecificSeconds(1);
-            assert (SilverSneakersContents.isDisplayed() && SilverSneakersPlus.isDisplayed());
-            SilverSneakersFitnessLink.click();
-            getDriver().switchTo().alert().dismiss();
-            SilverSneakersPlus.click();
-            waitForSpecificSeconds(1);
-            SilverSneakersPlusLink.click();
-            getDriver().switchTo().alert().dismiss();
-            SilverSneakersDisclaimerLink.click();
-            waitForSpecificSeconds(1);
-            assert (SilverSneakersDisclaimerContents.isDisplayed() && (!SilverSneakersDisclaimerContents.getText().equals("")));        waitForSpecificSeconds(1);
-            SilverSneakersDisclaimerLink.click();
-            waitForSpecificSeconds(1);
-            assert( SilverSneakersMinus.isDisplayed());
-            SilverSneakersMinus.click();
-            waitForSpecificSeconds(1);
             assert (SavingsOnVisionContents.isDisplayed() &&
                     (!SavingsOnVisionContents.getText().equals("")) &&
                     SavingsOnVisionPlus.isDisplayed());
@@ -92,6 +77,8 @@ public class Plan_OW_Page extends Plan_UW_Page{
             AarpVisionDisclaimerLink.click();
             waitForSpecificSeconds(1);
             assert (AarpVisionDisclaimerContents.isDisplayed() && (!AarpVisionDisclaimerContents.getText().isEmpty()));
+            AarpVisionDisclaimerLink.click();
+            SavingsOnVisionMinus.click();
             QuestionsPlus.click();
             assertThat( TechnicalSupport.getText(), equalTo("1-866-388-9919"));
             QuestionsMinus.click();
@@ -109,7 +96,7 @@ public class Plan_OW_Page extends Plan_UW_Page{
         }
     }
     public void isAt() {
-        assertThat(YourPlanOW.getText(), equalTo("AARP Medicare Supplement Rider 1 OW"));
+        assertThat(YourPlanOW.getText(), equalTo("AARP Medicare Supplement Rider 1 XW"));
     }
     public void verify_WI_GuideToHealthDocumentsContents(){
         if(!WI_GuideToHealthMinus.isDisplayed()){

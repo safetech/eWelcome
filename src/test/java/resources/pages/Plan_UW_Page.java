@@ -10,24 +10,21 @@ public class Plan_UW_Page extends Plan_F_Page{
     @FindBy(xpath = "html/body/div[3]/div[1]/div[5]/div/div/div/div/div[2]/div[3]/div/div/div[3]/div[2]/div[1]/div[2]/button")FluentWebElement InProgress;
     @FindBy(xpath = "html/body/div[3]/div[1]/div[5]/div/div/div/div/div[2]/div[3]/div/div/div[1]/div[2]/div[2]")FluentWebElement YourPlanContents;
     @FindBy(xpath = "html/body/div[3]/div[1]/div[5]/div/div/div/div/div[2]/div[3]/div/div/div[1]/div[2]/div[2]")FluentWebElement YourPlanStartDateContents;
+    @FindBy(xpath = "html/body/div[3]/div[1]/div[5]/div/div/div/div/div[2]/div[3]/div/div/div[1]/div[2]/div[1]")FluentWebElement YourPlanUW;
 
         public void clickAndVerify(){
-        try {
-            Thread.sleep(20000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        
         isAt();
         hasPlanHeaders();
             
         assert(InProgress.isDisplayed());
-        OutLineOfCoverage.click();
+        OutLineOfCoveragePdf.click();
         closeSpecificBrowser(1);
-        GuideToHealth.click();
+        GuideToHealthPdf.click();
         closeSpecificBrowser(1);
-        PrivacyAuthorizationForm.click();
+        PrivacyAuthorizationPdf.click();
         closeSpecificBrowser(1);
-        FileAClaim.click();
+        FileAClaimPdf.click();
         closeSpecificBrowser(1);
 
         if(PlanDocumentPlus.isDisplayed()){
@@ -91,6 +88,9 @@ public class Plan_UW_Page extends Plan_F_Page{
             AarpVisionDisclaimerLink.click();
             QuestionsPlus.click();
             assertThat( TechnicalSupport.getText(), equalTo("1-866-388-9919"));
+    }
+    public void isAt() {
+        assertThat(YourPlanUW.getText(), equalTo("AARP Extended Basic Medicare Supplement Plan UW"));
     }
 }
 

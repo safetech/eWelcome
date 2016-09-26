@@ -39,8 +39,13 @@ public class SignInPage extends WelcomePage{
         {
             
         }
-        
 
+        try {
+            Thread.sleep(15000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+            assertThat(pageTitle.getText(), equalTo("Your Plan"));
+        }
     }
     public void isAt() {
         assertThat(pageTitle.getText(), equalTo("Sign In With Your Optum ID"));

@@ -87,9 +87,7 @@ public class CQBaseIntegrationTest extends FluentTest {
     public void teardown(){
         executeScript("window.onbeforeunload = null;");
     }
-
-
-
+    
     public String getScriptResult(String script) {
         if (find("body > #output").size() == 0) {
             executeScript("$('body').append('<div id=\"output\"/>');");

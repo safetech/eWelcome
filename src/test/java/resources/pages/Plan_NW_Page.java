@@ -13,24 +13,19 @@ public class Plan_NW_Page extends Plan_UW_Page{
     @FindBy(xpath = "html/body/div[3]/div[1]/div[5]/div/div/div/div/div[2]/div[3]/div/div/div[3]/div[2]/div[3]/div[3]/p")FluentWebElement OutlineOfCoverageContents;
     @FindBy(xpath = "html/body/div[3]/div[1]/div[5]/div/div/div/div/div[2]/div[3]/div/div/div[1]/div[2]/div[2]")FluentWebElement YourPlanContents;
     @FindBy(xpath = "html/body/div[3]/div[1]/div[5]/div/div/div/div/div[2]/div[3]/div/div/div[1]/div[2]/div[2]")FluentWebElement YourPlanStartDateContents;
-
+    @FindBy(xpath = "html/body/div[3]/div[1]/div[5]/div/div/div/div/div[2]/div[3]/div/div/div[1]/div[2]/div[1]")FluentWebElement YourPlanNW;
         public void clickAndVerify(){
-        try {
-            Thread.sleep(20000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        isAt();
+       isAt();
         hasPlanHeaders();
             
         assert(Request.isDisplayed());
         OutLineOfCoverage.click();
         closeSpecificBrowser(1);
-        GuideToHealth.click();
+        GuideToHealthPdf.click();
         closeSpecificBrowser(1);
-        PrivacyAuthorizationForm.click();
+        PrivacyAuthorizationPdf.click();
         closeSpecificBrowser(1);
-        FileAClaim.click();
+        FileAClaimPdf.click();
         closeSpecificBrowser(1);
 
         verifyPlanDocumentsContents();
@@ -92,14 +87,20 @@ public class Plan_NW_Page extends Plan_UW_Page{
             AarpVisionDisclaimerLink.click();
             waitForSpecificSeconds(1);
             assert (AarpVisionDisclaimerContents.isDisplayed() && (!AarpVisionDisclaimerContents.getText().isEmpty()));
+            AarpVisionDisclaimerLink.click();
+            SavingsOnVisionMinus.click();
             QuestionsPlus.click();
             assertThat( TechnicalSupport.getText(), equalTo("1-866-388-9919"));
+            QuestionsMinus.click();
     }
     public void verifyOutlineOfCoverageDocumentsContents(){
         if(!OutlineOfCoverageMinus.isDisplayed()){
             OutLineOfCoveragePlus.click();
             assert(OutlineOfCoverageContents.getText().equals("Here you will find an outline of your plan benefits and the amount payable for those benefits for the year shown."));
         }
+    }
+    public void isAt() {
+        assertThat(YourPlanNW.getText(), equalTo("AARP Basic Medicare Supplement Plan With Co-pymts NW"));
     }
 }
 
