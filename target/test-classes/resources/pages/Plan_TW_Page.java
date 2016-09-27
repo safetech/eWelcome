@@ -31,7 +31,7 @@ public class Plan_TW_Page extends Plan_F_Page{
                     (!YourPlanStartDateContents.getText().equals("")));
 
             myAArpMedicareLink.click();
-            getDriver().switchTo().alert().dismiss();
+//            getDriver().switchTo().alert().dismiss();
             assert( YourOnlineAccountPlus.isDisplayed());
             YourOnlineAccountPlus.click();
             assert( YourOnlineAccountPlusContent.isDisplayed() && (!YourOnlineAccountContent.getText().equals("")) );
@@ -73,5 +73,6 @@ public class Plan_TW_Page extends Plan_F_Page{
     public void isAt() {
         assertThat(YourPlanTW.getText(), equalTo("AARP Basic Medicare Supplement Plan TW"));
     }
+    
 }
 

@@ -18,7 +18,7 @@ public class WelcomePage extends WizardPage {
     @FindBy(xpath = "html/body/div[3]/footer/div[1]/div/section[2]/div/div/div[1]/p[3]/span") FluentWebElement PlanInformation;
     @FindBy(xpath = "//*[contains(text(),'Register')]")
     FluentWebElement RegisterButton;
-    @FindBy(xpath = "//*[contains(text(),'Login')]")
+    @FindBy(xpath = "html/body/div[3]/div[1]/div/div[2]/div/section/div[2]/div/div[2]/a")
     FluentWebElement LoginButton;
     
 
