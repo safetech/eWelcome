@@ -27,7 +27,6 @@ public class WelcomePage extends WizardPage {
         return PropertyUtils.getProperty("ewelcome.urls");
     }
     
-    
     public void fillAndSubmit(Application app){
         isAt();
 

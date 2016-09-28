@@ -18,6 +18,7 @@ public class SignInPage extends WelcomePage{
     
     public void fillAndSubmit(Application app){
         LoginButton.click();
+        waitForSpecificSeconds(1);
         isAt();
         fill(userName).with(app.getUserName());
         fill(userPassword).with("P@ssword1");

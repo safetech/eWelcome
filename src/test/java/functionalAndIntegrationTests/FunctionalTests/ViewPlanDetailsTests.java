@@ -22,8 +22,7 @@ public class ViewPlanDetailsTests extends CQBaseIntegrationTest {
     @Page public Plan_TW_Page plan_tw_page;
     @Page public Plan_XW_YW_VW_WW_Page plan_xw_yw_vw_ww_page;
     @Page public Plan_F_Select_Page plan_f_select_page;
-
-    
+    @Page public Plan_K_Page plan_k_page;
     public Faker faker;
 
     @Before
@@ -31,7 +30,6 @@ public class ViewPlanDetailsTests extends CQBaseIntegrationTest {
         app = new Application();
         faker = new Faker(  );
     }
-
     @Test
     public void SignInToVerifyPlan_F_Tests(){
         app.setUserName("Automation12");
@@ -58,8 +56,8 @@ public class ViewPlanDetailsTests extends CQBaseIntegrationTest {
     }     
     @Test
     public void SignInToVerifyPlan_TW_XW_YW_Tests(){
-//   app.setUserName("BasicPlan_Rider2345_3");
-        app.setUserName("Automation16");
+        app.setUserName("BasicPlan_Rider2345_3");
+//        app.setUserName("Automation16");
         goTo(welcomePage);
         signInPage.fillAndSubmit(app);
         plan_tw_page.clickAndVerify();
@@ -71,7 +69,6 @@ public class ViewPlanDetailsTests extends CQBaseIntegrationTest {
     }    
     @Test
     public void SignInToVerifyPlan_TW_YW_VW_WW_Tests(){
-//   app.setUserName("BasicPlan_Rider2345_3");
         app.setUserName("MN_BasicPlanRider_234");
         goTo(welcomePage);
         signInPage.fillAndSubmit(app);
@@ -83,13 +80,20 @@ public class ViewPlanDetailsTests extends CQBaseIntegrationTest {
         getDriver().findElement(By.xpath("html/body/div[3]/div[1]/div[5]/div/div/div/div/div[2]/div[2]/form/ul/li[4]/a")).click();
         plan_xw_yw_vw_ww_page.ClickAndVerify_WW();
     }
-
     @Test
     public void SignInToVerifyPlan_F_Select_Tests(){
         app.setUserName("FL_SelectPlan_F");
         goTo(welcomePage);
         signInPage.fillAndSubmit(app);
         plan_f_select_page.clickAndVerify_F_Select();
+    }    
+    @Test
+    public void SignInToVerifyPlan_K_Tests(){
+        app.setUserName("PA_Plan_K");
+        goTo(welcomePage);
+        signInPage.fillAndSubmit(app);
+        plan_k_page.clickAndVerify();
     }
+    
 }
  
