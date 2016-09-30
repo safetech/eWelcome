@@ -16,8 +16,23 @@ public class Plan_UW_Page extends Plan_F_Page{
         
         isAt();
         hasPlanHeaders();
-            
-        assert(InProgress.isDisplayed());
+
+            try{
+                if(Request.isEnabled()) {
+                    Request.click();
+                    assert(!InProgress.isDisplayed());
+                    verifyPlanDocumentsContents("Request");
+
+                }
+                if(InProgress.isDisplayed()) {
+                    assert(!Request.isDisplayed());
+                    verifyPlanDocumentsContents("In Progress");
+                }
+            }
+            catch(Exception e){
+                System.out.print(e);
+            }
+
         OutLineOfCoveragePdf.click();
         closeSpecificBrowser(1);
         GuideToHealthPdf.click();
@@ -54,7 +69,7 @@ public class Plan_UW_Page extends Plan_F_Page{
                     (!YourPlanStartDateContents.getText().equals("")));
 
             myAArpMedicareLink.click();
-            getDriver().switchTo().alert().dismiss();
+            closeSpecificBrowser(1);
             assert( YourOnlineAccountPlus.isDisplayed());
             YourOnlineAccountPlus.click();
             assert( YourOnlineAccountPlusContent.isDisplayed() && (!YourOnlineAccountContent.getText().equals("")) );

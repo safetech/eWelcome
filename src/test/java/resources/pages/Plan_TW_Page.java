@@ -17,9 +17,22 @@ public class Plan_TW_Page extends Plan_F_Page{
         public void clickAndVerify(){
         isAt();
         hasPlanHeaders();
-            
-        assert(Request.isDisplayed());
-        verifyPlanDocumentsContents();
+
+            try{
+                if(Request.isEnabled()) {
+                    Request.click();
+                    assert(!InProgress.isDisplayed());
+                    verifyPlanDocumentsContents("Request");
+
+                }
+                if(InProgress.isDisplayed()) {
+                    assert(!Request.isDisplayed());
+                    verifyPlanDocumentsContents("In Progress");
+                }
+            }
+            catch(Exception e){
+                System.out.print(e);
+            }
         verifyOutlineOfCoverageDocumentsContents();
         verifyGuideToHealthDocumentsContents();
         verifyPrivacyAuthorizationDocumentsContents();
@@ -30,8 +43,8 @@ public class Plan_TW_Page extends Plan_F_Page{
                     YourPlanStartDateContents.isDisplayed()&&
                     (!YourPlanStartDateContents.getText().equals("")));
 
-            myAArpMedicareLink.click();
-//            getDriver().switchTo().alert().dismiss();
+            myAArpMedicareLink.click(); 
+            closeSpecificBrowser(1);
             assert( YourOnlineAccountPlus.isDisplayed());
             YourOnlineAccountPlus.click();
             assert( YourOnlineAccountPlusContent.isDisplayed() && (!YourOnlineAccountContent.getText().equals("")) );

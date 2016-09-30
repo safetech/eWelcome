@@ -17,8 +17,22 @@ public class Plan_NW_Page extends Plan_UW_Page{
         public void clickAndVerify(){
        isAt();
         hasPlanHeaders();
-            
-        assert(Request.isDisplayed());
+
+            try{
+                if(Request.isEnabled()) {
+                    Request.click();
+                    assert(!InProgress.isDisplayed());
+                    verifyPlanDocumentsContents("Request");
+
+                }
+                if(InProgress.isDisplayed()) {
+                    assert(!Request.isDisplayed());
+                    verifyPlanDocumentsContents("In Progress");
+                }
+            }
+            catch(Exception e){
+                System.out.print(e);
+            }
         OutLineOfCoverage.click();
         closeSpecificBrowser(1);
         GuideToHealthPdf.click();
@@ -27,8 +41,7 @@ public class Plan_NW_Page extends Plan_UW_Page{
         closeSpecificBrowser(1);
         FileAClaimPdf.click();
         closeSpecificBrowser(1);
-
-        verifyPlanDocumentsContents();
+            
         verifyOutlineOfCoverageDocumentsContents();
         verifyGuideToHealthDocumentsContents();
         verifyPrivacyAuthorizationDocumentsContents();
@@ -40,7 +53,7 @@ public class Plan_NW_Page extends Plan_UW_Page{
                     (!YourPlanStartDateContents.getText().equals("")));
 
             myAArpMedicareLink.click();
-            getDriver().switchTo().alert().dismiss();
+            closeSpecificBrowser(1);
             assert( YourOnlineAccountPlus.isDisplayed());
             YourOnlineAccountPlus.click();
             assert( YourOnlineAccountPlusContent.isDisplayed() && (!YourOnlineAccountContent.getText().equals("")) );
@@ -64,11 +77,11 @@ public class Plan_NW_Page extends Plan_UW_Page{
             waitForSpecificSeconds(1);
             assert (SilverSneakersContents.isDisplayed() && SilverSneakersPlus.isDisplayed());
             SilverSneakersFitnessLink.click();
-            getDriver().switchTo().alert().dismiss();
+            closeSpecificBrowser(1);
             SilverSneakersPlus.click();
             waitForSpecificSeconds(1);
             SilverSneakersPlusLink.click();
-            getDriver().switchTo().alert().dismiss();
+            closeSpecificBrowser(1);
             SilverSneakersDisclaimerLink.click();
             waitForSpecificSeconds(1);
             assert (SilverSneakersDisclaimerContents.isDisplayed() && (!SilverSneakersDisclaimerContents.getText().equals("")));        waitForSpecificSeconds(1);

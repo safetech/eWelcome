@@ -26,9 +26,23 @@ public class Plan_XW_YW_VW_WW_Page extends Plan_OW_Page{
     @FindBy(xpath = ".//html/body/div[3]/div[1]/div[5]/div/div/div/div/div[2]/div[3]/div/div/div[3]/div[2]/div[1]/div[4]/p[3]")FluentWebElement PlanDocumentContents;
         public void clickAndVerify(){
                 hasPlanHeaders();
-        assert(Request.isDisplayed());
+            try{
+                if(Request.isEnabled()) {
+                    Request.click();
+                    assert(!InProgress.isDisplayed());
+                    verifyPlanDocumentsContents("Request");
 
-        verifyPlanDocumentsContents();
+                }
+                if(InProgress.isDisplayed()) {
+                    assert(!Request.isDisplayed());
+                    verifyPlanDocumentsContents("In Progress");
+                }
+            }
+            catch(Exception e){
+                System.out.print(e);
+            }
+
+            
         verify_WI_GuideToHealthDocumentsContents();
         verifyPrivacyAuthorizationDocumentsContents();
         verifyFileAClaimDocumentsContents();

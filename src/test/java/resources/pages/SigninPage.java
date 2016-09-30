@@ -15,7 +15,7 @@ public class SignInPage extends WelcomePage{
     @FindBy(css = "#passwdId_input") FluentWebElement userPassword;
     FluentWebElement SignIn;
     @FindBy(xpath = "//*[@id='authQuestionWrapper']/div[1]/div/h1") FluentWebElement UnrecognizedDevice;
-    
+    @FindBy(xpath = "html/body/div[3]/div[1]/div[5]/div/div/div/div/div[2]/div[3]/div/div/div[1]/div[1]") FluentWebElement YourPlan;
     public void fillAndSubmit(Application app){
         LoginButton.click();
         waitForSpecificSeconds(1);
@@ -41,12 +41,9 @@ public class SignInPage extends WelcomePage{
             
         }
 
-        try {
-            Thread.sleep(15000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-            assertThat(pageTitle.getText(), equalTo("Your Plan"));
-        }
+        waitForSpecificSeconds(20);
+        assertThat(YourPlan.getText(), equalTo("Your Plan"));
+        waitForSpecificSeconds(5);
     }
     public void isAt() {
         assertThat(pageTitle.getText(), equalTo("Sign In With Your Optum ID"));

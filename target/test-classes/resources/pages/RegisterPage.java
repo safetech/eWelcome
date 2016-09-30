@@ -54,17 +54,6 @@ public Faker faker;
        dropdown.selectByIndex(3);
        fill( secAnswerThreeId_input).with("Answer3" );
        
-
-       //dropdown.getOptions();
-       //dropdown.selectByVisibleText("What was your first phone number?");
-       //dropdown.selectByValue("prog");
-       
-//       (new Select(secQues1Id.getElement())). 
-       
-       
-//       TermsOfUse.click(); //Get Caitlins clarification
-//       getDriver().navigate().back();
-       //agreeButtonId.click();
     }
     
     public void isAt() {

@@ -55,10 +55,21 @@ public class Plan_K_Page extends Plan_F_Page{
         isAt();
         hasPlanHeaders();
 
-        if(Request.isEnabled())
-            Request.click();
+        try{
+            if(Request.isEnabled()) {
+                Request.click();
+                assert(!InProgress.isDisplayed());
+                verifyPlanDocumentsContents("Request");
 
-        verifyPlanDocumentsContents();
+            }
+            if(InProgress.isDisplayed()) {
+                assert(!Request.isDisplayed());
+                verifyPlanDocumentsContents("In Progress");
+            }
+        }
+        catch(Exception e){
+            System.out.print(e);
+        }
         verifyOutlineOfCoverageDocumentsContents();
         verifyGuideToHealthDocumentsContents();
         verifyPrivacyAuthorizationDocumentsContents();

@@ -10,11 +10,12 @@ public class Plan_F_Page extends YourPlanPage{
     @FindBy(xpath = "html/body/div[3]/div[1]/div[5]/div/div/div/div/div[2]/div[3]/div/div/div[3]/div[2]/div[5]/div[2]/a")FluentWebElement OutLineOfCoveragePdf;
     @FindBy(xpath = "html/body/div[3]/div[1]/div[5]/div/div/div/div/div[2]/div[3]/div/div/div[3]/div[2]/div[6]/div[2]/a")FluentWebElement GuideToHealthPdf;
     @FindBy(xpath = "html/body/div[3]/div[1]/div[5]/div/div/div/div/div[2]/div[3]/div/div/div[4]/div[2]/div[4]/div[2]/a")FluentWebElement FileAClaimPdf;
-    @FindBy(xpath = "html/body/div[3]/div[1]/div[5]/div/div/div/div/div[2]/div[3]/div/div/div[3]/div[2]/div[1]/div[2]/button[2]")FluentWebElement Request;
+    @FindBy(xpath = "html/body/div[3]/div[1]/div[5]/div/div/div/div/div[2]/div[3]/div/div/div[3]/div[2]/div[1]/div[2]/button[2]")FluentWebElement Request;    
+    @FindBy(xpath = "html/body/div[3]/div[1]/div[5]/div/div/div/div/div[2]/div[3]/div/div/div[3]/div[2]/div[1]/div[2]/button")FluentWebElement InProgress;
     
     @FindBy(xpath = "html/body/div[3]/div[1]/div[1]/div/div/div/div/div[2]/div[3]/div/div/div[3]/div[2]/div[1]/div[1]/img[1]")FluentWebElement PlanDocumentPlus;
     @FindBy(xpath = "html/body/div[3]/div[1]/div[5]/div/div/div/div/div[2]/div[3]/div/div/div[3]/div[2]/div[1]/div[1]/img[2]")FluentWebElement PlanDocumentMinus;
-    @FindBy(xpath = ".//*[@id='bodyContent']/div[5]/div/div/div/div/div[2]/div[3]/div/div/div[3]/div[2]/div[1]/div[4]/p[3]")FluentWebElement PlanDocumentContents;
+    @FindBy(xpath = ".//*[@id='bodyContent']/div[5]/div/div/div/div/div[2]/div[3]/div/div/div[3]/div[2]/div[1]/div[4]/p[3]")FluentWebElement PlanDocumentContents;    
     
     @FindBy(xpath = "html/body/div[3]/div[1]/div[5]/div/div/div/div/div[2]/div[3]/div/div/div[3]/div[2]/div[5]/div[1]/img[1]")FluentWebElement OutLineOfCoveragePlus;
     @FindBy(xpath = "html/body/div[3]/div[1]/div[5]/div/div/div/div/div[2]/div[3]/div/div/div[3]/div[2]/div[5]/div[1]/img[2]")FluentWebElement OutlineOfCoverageMinus;
@@ -61,23 +62,36 @@ public class Plan_F_Page extends YourPlanPage{
     @FindBy(xpath = "html/body/div[3]/div[1]/div[5]/div/div/div/div/div[5]/div/div[13]/div[2]/div/div/p/b")FluentWebElement AarpVisionDisclaimerContents;
 
     @FindBy(xpath = "html/body/div[3]/div[1]/div[5]/div/div/div/div/div[2]/div[3]/div/div/div[1]/div[2]/div[1]")FluentWebElement YourPlanF;
-    
-    protected int TOTAL_POSSIBLE_QUESTION_COUNT = 2;
     public void clickAndVerify(){
+                
         isAt();
         hasPlanHeaders();
+                
+        try{
+            if(Request.isEnabled()) {
+                Request.click();
+                assert(!InProgress.isDisplayed());
+                verifyPlanDocumentsContents("Request");
+                
+            }
+            if(InProgress.isDisplayed()) {
+                assert(!Request.isDisplayed());
+                verifyPlanDocumentsContents("In Progress");
+            }
+        }
+            catch(Exception e){
+                System.out.print(e);
+            }
 
-        if(Request.isEnabled())
-            Request.click();
 
-        verifyPlanDocumentsContents();
+//        verifyPlanDocumentsContents(PlanDocStatus);
         verifyOutlineOfCoverageDocumentsContents();
         verifyGuideToHealthDocumentsContents();
         verifyPrivacyAuthorizationDocumentsContents();
         verifyFileAClaimDocumentsContents();
         
         myAArpMedicareLink.click();
-        getDriver().switchTo().alert().dismiss();
+        closeSpecificBrowser(1);
         assert( YourOnlineAccountPlus.isDisplayed());
         YourOnlineAccountPlus.click();
         assert( YourOnlineAccountPlusContent.isDisplayed() && (!YourOnlineAccountContent.getText().equals("")) );
@@ -101,11 +115,11 @@ public class Plan_F_Page extends YourPlanPage{
         waitForSpecificSeconds(1);
         assert (SilverSneakersContents.isDisplayed() && SilverSneakersPlus.isDisplayed());
         SilverSneakersFitnessLink.click();
-        getDriver().switchTo().alert().dismiss();
+        closeSpecificBrowser(1);
         SilverSneakersPlus.click();
         waitForSpecificSeconds(1);
         SilverSneakersPlusLink.click();
-        getDriver().switchTo().alert().dismiss();
+        closeSpecificBrowser(1);
         SilverSneakersDisclaimerLink.click();
         waitForSpecificSeconds(1);
         assert (SilverSneakersDisclaimerContents.isDisplayed() && (!SilverSneakersDisclaimerContents.getText().equals("")));        waitForSpecificSeconds(1);
@@ -129,10 +143,21 @@ public class Plan_F_Page extends YourPlanPage{
         QuestionsMinus.click();
     }
 
-    public void verifyPlanDocumentsContents(){
-        if(!PlanDocumentPlus.isDisplayed()){
-            assert(PlanDocumentContents.getText().equals("Your plan documents may not be up to date on this site because they are currently being delivered to you by mail. In order to update your documents online, please change your preference to \"online\" in the profile and preferences page."));
-            PlanDocumentMinus.click();
+    public void verifyPlanDocumentsContents(String PlanDocStatus){
+                
+        if(PlanDocStatus.equals("Request")){
+            
+            if(!PlanDocumentPlus.isDisplayed()){
+                assert(PlanDocumentContents.getText().equals("Your plan documents may not be up to date on this site because they are currently being delivered to you by mail. In order to update your documents online, please change your preference to \"online\" in the profile and preferences page."));
+                PlanDocumentMinus.click();
+            }
+        }else if(PlanDocStatus.equals("In Progress")){
+
+            if(!PlanDocumentMinus.isDisplayed()){
+                PlanDocumentPlus.click();
+                assert(PlanDocumentContents.getText().equals("Includes your Certificate of Insurance as well as additional important information. Up to 2 of the most recent Plan documents are available. Past documents can be requested by calling the number in \"Questions\"."));
+                PlanDocumentMinus.click();
+            }
         }
     }    
     public void verifyOutlineOfCoverageDocumentsContents(){

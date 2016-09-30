@@ -41,10 +41,13 @@ public class CQBaseIntegrationTest extends FluentTest {
     protected String UNSURE = AnswerUtils.UNSURE;
     protected static String BLANK = AnswerUtils.BLANK;
     //Comment the below 3 lines if your not using Browser Stack
-    public static final String USERNAME = "holleyrussell1";
-    public static final String AUTOMATE_KEY = "e1hxsgqbj5542GMQCAev";
-    public static final String URL = "http://" + USERNAME + ":" + AUTOMATE_KEY + "@hub.browserstack.com/wd/hub";
-    
+//    public static final String USERNAME = "holleyrussell1";
+//    public static final String AUTOMATE_KEY = "e1hxsgqbj5542GMQCAev";
+//    public static final String URL = "http://" + USERNAME + ":" + AUTOMATE_KEY + "@hub.browserstack.com/wd/hub";
+
+    public static final String USERNAME = "sislam13";
+    public static final String ACCESS_KEY = "cf56359f-6bd8-494e-8992-a137b6b9d780";
+    public static final String URL = "http://" + USERNAME + ":" + ACCESS_KEY + "@ondemand.saucelabs.com:80/wd/hub";
     @Rule
     public TestRule testWatcher = new TestWatcher() {
         @Override
@@ -66,7 +69,7 @@ public class CQBaseIntegrationTest extends FluentTest {
 
     @Override
     public WebDriver getDefaultDriver() {
-
+//
         if(PropertyUtils.getProperty( "Browser" ).equals( "Firefox" )){
         ProfilesIni profile = new ProfilesIni();
         FirefoxProfile ffprofile = profile.getProfile("Selenium");
@@ -78,7 +81,24 @@ public class CQBaseIntegrationTest extends FluentTest {
         driver = new ChromeDriver(  );
         }
         
-//        System.setProperty("webdriver.firefox.bin","/Users/sislam13/dev/apps/firefox/firefox-48/Firefox.app");
+//            DesiredCapabilities caps = DesiredCapabilities.chrome();
+//            caps.setCapability("platform", "Windows 7");
+//            caps.setCapability("browser", "firefox");
+//            caps.setCapability("version", "45");
+//            caps.setCapability("tunnel-identifier", "7f210211f7a144d8a4acc1bb77f30a3c");
+////            caps.setCapability("avoid-proxy",true);
+//            caps.setCapability("parent-tunnel", "sauce_admin");
+
+//
+//        WebDriver driver = null;
+//        try {
+//            driver = new RemoteWebDriver(new URL(URL), caps);
+//        } catch (MalformedURLException e) {
+//            e.printStackTrace();
+//        }
+//        
+//            driver.get("https://member.uhcinfo-stg.uhc.com/#/<");
+
         return driver;
 
     }

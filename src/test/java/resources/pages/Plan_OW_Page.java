@@ -32,7 +32,22 @@ public class Plan_OW_Page extends Plan_UW_Page{
         public void clickAndVerify(){
         isAt();
         hasPlanHeaders();
-        assert(Request.isDisplayed());
+            try{
+                if(Request.isEnabled()) {
+                    Request.click();
+                    assert(!InProgress.isDisplayed());
+                    verifyPlanDocumentsContents("Request");
+
+                }
+                if(InProgress.isDisplayed()) {
+                    assert(!Request.isDisplayed());
+                    verifyPlanDocumentsContents("In Progress");
+                }
+            }
+            catch(Exception e){
+                System.out.print(e);
+            }
+
 
         verifyPlanDocumentsContents();
         verify_WI_GuideToHealthDocumentsContents();
@@ -43,58 +58,6 @@ public class Plan_OW_Page extends Plan_UW_Page{
                     (!YourPlanContents.getText().equals(""))&&
                     YourPlanStartDateContents.isDisplayed()&&
                     (!YourPlanStartDateContents.getText().equals("")));
-
-            myAArpMedicareLink.click();
-            getDriver().switchTo().alert().dismiss();
-            assert( YourOnlineAccountPlus.isDisplayed());
-            YourOnlineAccountPlus.click();
-            assert( YourOnlineAccountPlusContent.isDisplayed() && (!YourOnlineAccountContent.getText().equals("")) );
-            assert( YourOnlineAccountMinus.isDisplayed());
-            YourOnlineAccountMinus.click();
-
-            assert (NurseHealthLineContent.isDisplayed() &&
-                    NurseHealthLinePlus.isDisplayed() &&
-                    NurseHealthLineContent.getText().equals("Call Nurse HealthLine for 24/7 access to a registered nurse via telephone who will help you make the best health decisions.") );
-            NurseHealthLinePlus.click();
-            waitForSpecificSeconds(1);
-            AARPHealthAndWellnessLink.click();
-            closeSpecificBrowser(1);
-            DisclaimerLink.click();
-            waitForSpecificSeconds(1);
-            assert (DisclaimerContents.isDisplayed()&&(!DisclaimerContents.getText().isEmpty()));
-            DisclaimerLink.click();
-            waitForSpecificSeconds(1);
-            assert (!DisclaimerContents.isDisplayed());
-            NurseHealthLinkMinus.click();
-            waitForSpecificSeconds(1);
-            assert (SilverSneakersContents.isDisplayed() && SilverSneakersPlus.isDisplayed());
-            SilverSneakersFitnessLink.click();
-            getDriver().switchTo().alert().dismiss();
-            SilverSneakersPlus.click();
-            waitForSpecificSeconds(1);
-            SilverSneakersPlusLink.click();
-            getDriver().switchTo().alert().dismiss();
-            SilverSneakersDisclaimerLink.click();
-            waitForSpecificSeconds(1);
-            assert (SilverSneakersDisclaimerContents.isDisplayed() && (!SilverSneakersDisclaimerContents.getText().equals("")));        waitForSpecificSeconds(1);
-            SilverSneakersDisclaimerLink.click();
-            waitForSpecificSeconds(1);
-            assert( SilverSneakersMinus.isDisplayed());
-            SilverSneakersMinus.click();
-            waitForSpecificSeconds(1);
-            assert (SavingsOnVisionContents.isDisplayed() &&
-                    (!SavingsOnVisionContents.getText().equals("")) &&
-                    SavingsOnVisionPlus.isDisplayed());
-            SavingsOnVisionPlus.click();
-            waitForSpecificSeconds(1);
-            AarpHealthcareVisionLink.click();
-            closeSpecificBrowser(1);
-            AarpVisionDisclaimerLink.click();
-            waitForSpecificSeconds(1);
-            assert (AarpVisionDisclaimerContents.isDisplayed() && (!AarpVisionDisclaimerContents.getText().isEmpty()));
-            QuestionsPlus.click();
-            assertThat( TechnicalSupport.getText(), equalTo("1-866-388-9919"));
-            QuestionsMinus.click();
     }
     public void verifyPlanDocumentsContents(){
         if(!PlanDocumentPlus.isDisplayed()){
@@ -127,14 +90,6 @@ public class Plan_OW_Page extends Plan_UW_Page{
         PrivacyAuthorizationPdf.click();
         closeSpecificBrowser(1);
     }
-//    public void verifyFileAClaimDocumentsContents(){
-//        if(!WI_FileAClaimMinus.isDisplayed()){
-//            WI_FileAClaimPlus.click();
-//            assert(WI_FileAClaimContents.isDisplayed() &&
-//                    FileAClaimContents.getText().equals("Claim filing is easier than ever. This provides instructions on how to submit your claim for payment."));
-//        }
-//        WI_FileAClaimPdf.click();
-//        closeSpecificBrowser(1);
-//    }
+
 }
 

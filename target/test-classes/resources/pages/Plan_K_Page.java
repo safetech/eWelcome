@@ -9,17 +9,11 @@ import static org.hamcrest.MatcherAssert.assertThat;
 public class Plan_K_Page extends Plan_F_Page{
     @FindBy(xpath = "html/body/div[3]/div[1]/div[5]/div/div/div/div/div[2]/div[3]/div/div/div[3]/div[2]/div[4]/div[2]/a")FluentWebElement OutLineOfCoveragePdf;
     @FindBy(xpath = "html/body/div[3]/div[1]/div[5]/div/div/div/div/div[2]/div[3]/div/div/div[3]/div[2]/div[6]/div[2]/a")FluentWebElement GuideToHealthPdf;
-    @FindBy(xpath = "html/body/div[3]/div[1]/div[5]/div/div/div/div/div[2]/div[3]/div/div/div[4]/div[2]/div[4]/div[2]/a")FluentWebElement FileAClaimPdf;
     @FindBy(xpath = "html/body/div[3]/div[1]/div[5]/div/div/div/div/div[2]/div[3]/div/div/div[3]/div[2]/div[2]/div[2]/a")FluentWebElement PlanKorLPdf;
     @FindBy(xpath = "html/body/div[3]/div[1]/div[5]/div/div/div/div/div[2]/div[3]/div/div/div[3]/div[2]/div[2]/div[1]/img[1]")FluentWebElement PlanKorLPlus;
     @FindBy(xpath = "html/body/div[3]/div[1]/div[5]/div/div/div/div/div[2]/div[3]/div/div/div[3]/div[2]/div[2]/div[1]/img[2]")FluentWebElement PlanKorLMinus;
     @FindBy(xpath = "html/body/div[3]/div[1]/div[5]/div/div/div/div/div[2]/div[3]/div/div/div[3]/div[2]/div[2]/div[3]/p")FluentWebElement PlanKorLContents;
-    
     @FindBy(xpath = "html/body/div[3]/div[1]/div[5]/div/div/div/div/div[2]/div[3]/div/div/div[3]/div[2]/div[1]/div[2]/button[2]")FluentWebElement Request;
-    
-    @FindBy(xpath = "html/body/div[3]/div[1]/div[1]/div/div/div/div/div[2]/div[3]/div/div/div[3]/div[2]/div[1]/div[1]/img[1]")FluentWebElement PlanDocumentPlus;
-    @FindBy(xpath = "html/body/div[3]/div[1]/div[5]/div/div/div/div/div[2]/div[3]/div/div/div[3]/div[2]/div[1]/div[1]/img[2]")FluentWebElement PlanDocumentMinus;
-    @FindBy(xpath = ".//*[@id='bodyContent']/div[5]/div/div/div/div/div[2]/div[3]/div/div/div[3]/div[2]/div[1]/div[4]/p[3]")FluentWebElement PlanDocumentContents;
     
     @FindBy(xpath = "html/body/div[3]/div[1]/div[5]/div/div/div/div/div[2]/div[3]/div/div/div[3]/div[2]/div[4]/div[1]/img[1]")FluentWebElement OutLineOfCoveragePlus;
     @FindBy(xpath = "html/body/div[3]/div[1]/div[5]/div/div/div/div/div[2]/div[3]/div/div/div[3]/div[2]/div[4]/div[1]/img[2]")FluentWebElement OutlineOfCoverageMinus;
@@ -28,15 +22,6 @@ public class Plan_K_Page extends Plan_F_Page{
     @FindBy(xpath = "html/body/div[3]/div[1]/div[5]/div/div/div/div/div[2]/div[3]/div/div/div[3]/div[2]/div[6]/div[1]/img[1]")FluentWebElement GuideToHealthPlus;
     @FindBy(xpath = "html/body/div[3]/div[1]/div[5]/div/div/div/div/div[2]/div[3]/div/div/div[3]/div[2]/div[6]/div[1]/img[2]")FluentWebElement GuideToHealthMinus;
     @FindBy(xpath = "html/body/div[3]/div[1]/div[5]/div/div/div/div/div[2]/div[3]/div/div/div[3]/div[2]/div[6]/div[3]/p")FluentWebElement GuideToHealthContents;
-
-    @FindBy(xpath = "html/body/div[3]/div[1]/div[5]/div/div/div/div/div[2]/div[3]/div/div/div[4]/div[2]/div[2]/a")FluentWebElement PrivacyAuthorizationPdf;
-    @FindBy(xpath = "html/body/div[3]/div[1]/div[5]/div/div/div/div/div[2]/div[3]/div/div/div[4]/div[2]/div[1]/img[1]")FluentWebElement PrivacyAuthorizationPlus;
-    @FindBy(xpath = "html/body/div[3]/div[1]/div[5]/div/div/div/div/div[2]/div[3]/div/div/div[4]/div[2]/div[1]/img[2]")FluentWebElement PrivacyAuthorizationMinus;
-    @FindBy(xpath = "html/body/div[3]/div[1]/div[5]/div/div/div/div/div[2]/div[3]/div/div/div[4]/div[2]/div[3]/p")FluentWebElement PrivacyAuthorizationContents;
-    
-    @FindBy(xpath = "html/body/div[3]/div[1]/div[5]/div/div/div/div/div[2]/div[3]/div/div/div[4]/div[2]/div[4]/div[1]/img[1]")FluentWebElement FileAClaimPlus;
-    @FindBy(xpath = "html/body/div[3]/div[1]/div[5]/div/div/div/div/div[2]/div[3]/div/div/div[4]/div[2]/div[4]/div[1]/img[2]")FluentWebElement FileAClaimMinus;
-    @FindBy(xpath = "html/body/div[3]/div[1]/div[5]/div/div/div/div/div[2]/div[3]/div/div/div[4]/div[2]/div[4]/div[3]/p")FluentWebElement FileAClaimContents;
     
     @FindBy(xpath = "html/body/div[3]/div[1]/div[5]/div/div/div/div/div[5]/div/div[7]/div[1]/div[3]/div/p")FluentWebElement YourOnlineAccountContent;
     @FindBy(xpath = "html/body/div[3]/div[1]/div[5]/div/div/div/div/div[5]/div/div[7]/div[2]/div[1]/p")FluentWebElement YourOnlineAccountPlusContent;
@@ -60,22 +45,31 @@ public class Plan_K_Page extends Plan_F_Page{
     
     @FindBy(xpath = "html/body/div[3]/div[1]/div[5]/div/div/div/div/div[5]/div/div[13]/div[1]/div[3]/p[2]")FluentWebElement SavingsOnVisionContents;
     @FindBy(xpath = "html/body/div[3]/div[1]/div[5]/div/div/div/div/div[5]/div/div[13]/div[1]/div[4]/img[1]")FluentWebElement SavingsOnVisionPlus;
-    @FindBy(xpath = "html/body/div[3]/div[1]/div[5]/div/div/div/div/div[5]/div/div[13]/div[1]/div[4]/img[2]")FluentWebElement SavingsOnVisionMinus;
     @FindBy(xpath = "html/body/div[3]/div[1]/div[5]/div/div/div/div/div[5]/div/div[13]/div[2]/ul/li[4]/a")FluentWebElement AarpHealthcareVisionLink;
     @FindBy(xpath = "html/body/div[3]/div[1]/div[5]/div/div/div/div/div[5]/div/div[13]/div[2]/div/i")FluentWebElement AarpVisionDisclaimerLink;    
     @FindBy(xpath = "html/body/div[3]/div[1]/div[5]/div/div/div/div/div[5]/div/div[13]/div[2]/div/div/p/b")FluentWebElement AarpVisionDisclaimerContents;
 
-    @FindBy(xpath = "html/body/div[3]/div[1]/div[5]/div/div/div/div/div[2]/div[3]/div/div/div[1]/div[2]/div[1]")FluentWebElement YourPlanF;
-    
+    @FindBy(xpath = "html/body/div[3]/div[1]/div[5]/div/div/div/div/div[2]/div[3]/div/div/div[1]/div[2]/div[1]")FluentWebElement YourPlanK;
     
     public void clickAndVerify(){
         isAt();
         hasPlanHeaders();
 
-        if(Request.isEnabled())
-            Request.click();
+        try{
+            if(Request.isEnabled()) {
+                Request.click();
+                assert(!InProgress.isDisplayed());
+                verifyPlanDocumentsContents("Request");
 
-        verifyPlanDocumentsContents();
+            }
+            if(InProgress.isDisplayed()) {
+                assert(!Request.isDisplayed());
+                verifyPlanDocumentsContents("In Progress");
+            }
+        }
+        catch(Exception e){
+            System.out.print(e);
+        }
         verifyOutlineOfCoverageDocumentsContents();
         verifyGuideToHealthDocumentsContents();
         verifyPrivacyAuthorizationDocumentsContents();
@@ -135,13 +129,7 @@ public class Plan_K_Page extends Plan_F_Page{
         assertThat( TechnicalSupport.getText(), equalTo("1-866-388-9919"));
         QuestionsMinus.click();
     }
-
-//    public void verifyPlanDocumentsContents(){
-//        if(!PlanDocumentPlus.isDisplayed()){
-//            assert(PlanDocumentContents.getText().equals("Your plan documents may not be up to date on this site because they are currently being delivered to you by mail. In order to update your documents online, please change your preference to \"online\" in the profile and preferences page."));
-//            PlanDocumentMinus.click();
-//        }
-//    }    
+  
     public void verifyOutlineOfCoverageDocumentsContents(){
         if(!OutlineOfCoverageMinus.isDisplayed()){
             OutLineOfCoveragePlus.click();
@@ -158,24 +146,7 @@ public class Plan_K_Page extends Plan_F_Page{
         GuideToHealthPdf.click();
         closeSpecificBrowser(1);
     }    
-//    public void verifyPrivacyAuthorizationDocumentsContents(){
-//        if(!PrivacyAuthorizationMinus.isDisplayed()){
-//            PrivacyAuthorizationPlus.click();
-//            assert(PrivacyAuthorizationContents.getText().equals("Information about your health insurance coverage cannot be given out without your permission. If you would like to allow someone of your choice to help you with your health insurance, you can use this form."));
-//        }
-//        PrivacyAuthorizationPdf.click();
-//        closeSpecificBrowser(1);
-//    }    
-//    public void verifyFileAClaimDocumentsContents(){
-//        if(!FileAClaimMinus.isDisplayed()){
-//            FileAClaimPlus.click();
-//            assert(YourOnlineAccountContent.isDisplayed() &&
-//                    FileAClaimContents.getText().equals("Claim filing is easier than ever. This provides instructions on how to submit your claim for payment.") &&
-//                    YourOnlineAccountContent.getText().equals("If you haven't yet, register for myAARPMedicare.com to see information about your claims, plan benefits and premium payments."));
-//        }
-//        FileAClaimPdf.click();
-//        closeSpecificBrowser(1);
-//    }
+
     public void verifyPlanKorLContents(){
         if(!PlanKorLMinus.isDisplayed()){
             PlanKorLPlus.click();
@@ -187,6 +158,6 @@ public class Plan_K_Page extends Plan_F_Page{
     }
     public void isAt() {
         
-        assertThat(YourPlanF.getText(), equalTo("AARP Medicare Supplement Plan K"));
+        assertThat(YourPlanK.getText(), equalTo("AARP Medicare Supplement Plan K"));
     }
 }
