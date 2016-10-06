@@ -80,15 +80,15 @@ public class CQBaseIntegrationTest extends FluentTest {
         System.setProperty("webdriver.chrome.driver","/Users/sislam13/dev/apps/chrome/chrome-46/chromedriver");
         driver = new ChromeDriver(  );
         }
-        
-//            DesiredCapabilities caps = DesiredCapabilities.chrome();
+//        
+//            DesiredCapabilities caps = DesiredCapabilities.internetExplorer();
 //            caps.setCapability("platform", "Windows 7");
-//            caps.setCapability("browser", "firefox");
-//            caps.setCapability("version", "45");
-//            caps.setCapability("tunnel-identifier", "7f210211f7a144d8a4acc1bb77f30a3c");
+////            caps.setCapability("browserName", "ie");
+////            caps.setCapability("iedriverVersion", "2.53.1");
+//            caps.setCapability("tunnelIdentifier", "OptumSharedTunnel-PRD");
 ////            caps.setCapability("avoid-proxy",true);
 //            caps.setCapability("parent-tunnel", "sauce_admin");
-
+//
 //
 //        WebDriver driver = null;
 //        try {
@@ -96,8 +96,8 @@ public class CQBaseIntegrationTest extends FluentTest {
 //        } catch (MalformedURLException e) {
 //            e.printStackTrace();
 //        }
-//        
-//            driver.get("https://member.uhcinfo-stg.uhc.com/#/<");
+        
+//            driver.get("https://member.uhcinfo-stg.uhc.com/#/");
 
         return driver;
 

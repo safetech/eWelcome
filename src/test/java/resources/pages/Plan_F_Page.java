@@ -2,6 +2,7 @@ package resources.pages;
 
 import org.fluentlenium.core.domain.FluentWebElement;
 import org.openqa.selenium.support.FindBy;
+import resources.Application;
 
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -35,7 +36,7 @@ public class Plan_F_Page extends YourPlanPage{
     @FindBy(xpath = "html/body/div[3]/div[1]/div[5]/div/div/div/div/div[2]/div[3]/div/div/div[4]/div[2]/div[4]/div[3]/p")FluentWebElement FileAClaimContents;
     
     @FindBy(xpath = "html/body/div[3]/div[1]/div[5]/div/div/div/div/div[5]/div/div[7]/div[1]/div[3]/div/p")FluentWebElement YourOnlineAccountContent;
-    @FindBy(xpath = "html/body/div[3]/div[1]/div[5]/div/div/div/div/div[5]/div/div[7]/div[2]/div[1]/p")FluentWebElement YourOnlineAccountPlusContent;
+    @FindBy(xpath = "html/body/div[3]/div[1]/div[5]/div/div/div/div/div[5]/div/div[7]/div[1]/div[3]/div/p")FluentWebElement YourOnlineAccountPlusContent;
     @FindBy(xpath = "html/body/div[3]/div[1]/div[5]/div/div/div/div/div[5]/div/div[7]/div[1]/div[4]/img[1]")FluentWebElement YourOnlineAccountPlus;
     @FindBy(xpath = "html/body/div[3]/div[1]/div[5]/div/div/div/div/div[5]/div/div[7]/div[1]/div[4]/img[2]")FluentWebElement YourOnlineAccountMinus;
     @FindBy(xpath = "html/body/div[3]/div[1]/div[5]/div/div/div/div/div[5]/div/div[7]/div[1]/div[3]/div/p/a")FluentWebElement myAArpMedicareLink;
@@ -62,8 +63,10 @@ public class Plan_F_Page extends YourPlanPage{
     @FindBy(xpath = "html/body/div[3]/div[1]/div[5]/div/div/div/div/div[5]/div/div[13]/div[2]/div/div/p/b")FluentWebElement AarpVisionDisclaimerContents;
 
     @FindBy(xpath = "html/body/div[3]/div[1]/div[5]/div/div/div/div/div[2]/div[3]/div/div/div[1]/div[2]/div[1]")FluentWebElement YourPlanF;
-    public void clickAndVerify(){
+    public void clickAndVerify(Application app){
                 
+        
+        
         isAt();
         hasPlanHeaders();
                 
@@ -98,49 +101,56 @@ public class Plan_F_Page extends YourPlanPage{
         assert( YourOnlineAccountMinus.isDisplayed());
         YourOnlineAccountMinus.click();
         
-        assert (NurseHealthLineContent.isDisplayed() &&
-                NurseHealthLinePlus.isDisplayed() &&
-                NurseHealthLineContent.getText().equals("Call Nurse HealthLine for 24/7 access to a registered nurse via telephone who will help you make the best health decisions.") );
-                NurseHealthLinePlus.click();
-        waitForSpecificSeconds(1);
-        AARPHealthAndWellnessLink.click();
-        closeSpecificBrowser(1);
-        DisclaimerLink.click();
-        waitForSpecificSeconds(1);  
-        assert (DisclaimerContents.isDisplayed()&&(!DisclaimerContents.getText().isEmpty()));
-        DisclaimerLink.click();
-        waitForSpecificSeconds(1);
-        assert (!DisclaimerContents.isDisplayed());
-        NurseHealthLinkMinus.click();
-        waitForSpecificSeconds(1);
-        assert (SilverSneakersContents.isDisplayed() && SilverSneakersPlus.isDisplayed());
-        SilverSneakersFitnessLink.click();
-        closeSpecificBrowser(1);
-        SilverSneakersPlus.click();
-        waitForSpecificSeconds(1);
-        SilverSneakersPlusLink.click();
-        closeSpecificBrowser(1);
-        SilverSneakersDisclaimerLink.click();
-        waitForSpecificSeconds(1);
-        assert (SilverSneakersDisclaimerContents.isDisplayed() && (!SilverSneakersDisclaimerContents.getText().equals("")));        waitForSpecificSeconds(1);
-        SilverSneakersDisclaimerLink.click();
-        waitForSpecificSeconds(1);
-        assert( SilverSneakersMinus.isDisplayed());
-        SilverSneakersMinus.click();
-        waitForSpecificSeconds(1);
-        assert (SavingsOnVisionContents.isDisplayed() && 
-                (!SavingsOnVisionContents.getText().equals("")) && 
-                SavingsOnVisionPlus.isDisplayed());
-        SavingsOnVisionPlus.click();
-        waitForSpecificSeconds(1);
-        AarpHealthcareVisionLink.click();
-        closeSpecificBrowser(1);
-        AarpVisionDisclaimerLink.click();
-        waitForSpecificSeconds(1);
-        assert (AarpVisionDisclaimerContents.isDisplayed() && (!AarpVisionDisclaimerContents.getText().isEmpty()));
-        QuestionsPlus.click();
-        assertThat( TechnicalSupport.getText(), equalTo("1-866-388-9919"));
-        QuestionsMinus.click();
+        if(app.getNurseHealthLine()){
+            assert (NurseHealthLineContent.isDisplayed() &&
+                    NurseHealthLinePlus.isDisplayed() &&
+                    NurseHealthLineContent.getText().equals("Call Nurse HealthLine for 24/7 access to a registered nurse via telephone who will help you make the best health decisions."));
+            NurseHealthLinePlus.click();
+            waitForSpecificSeconds(1);
+            AARPHealthAndWellnessLink.click();
+            closeSpecificBrowser(1);
+            DisclaimerLink.click();
+            waitForSpecificSeconds(1);
+            assert (DisclaimerContents.isDisplayed() && (!DisclaimerContents.getText().isEmpty()));
+            DisclaimerLink.click();
+            waitForSpecificSeconds(1);
+            assert (!DisclaimerContents.isDisplayed());
+            NurseHealthLinkMinus.click();
+            waitForSpecificSeconds(1);
+        }
+        if(app.getSiverSneakers()){
+            assert (SilverSneakersContents.isDisplayed() && SilverSneakersPlus.isDisplayed());
+            SilverSneakersFitnessLink.click();
+            closeSpecificBrowser(1);
+            SilverSneakersPlus.click();
+            waitForSpecificSeconds(1);
+            SilverSneakersPlusLink.click();
+            closeSpecificBrowser(1);
+            SilverSneakersDisclaimerLink.click();
+            waitForSpecificSeconds(1);
+            assert (SilverSneakersDisclaimerContents.isDisplayed() && (!SilverSneakersDisclaimerContents.getText().equals("")));
+            waitForSpecificSeconds(1);
+            SilverSneakersDisclaimerLink.click();
+            waitForSpecificSeconds(1);
+            assert (SilverSneakersMinus.isDisplayed());
+            SilverSneakersMinus.click();
+            waitForSpecificSeconds(1);
+        }
+        if(app.getSavingsOnVisionContents()){
+            assert (SavingsOnVisionContents.isDisplayed() && 
+                    (!SavingsOnVisionContents.getText().equals("")) && 
+                    SavingsOnVisionPlus.isDisplayed());
+            SavingsOnVisionPlus.click();
+            waitForSpecificSeconds(1);
+            AarpHealthcareVisionLink.click();
+            closeSpecificBrowser(1);
+            AarpVisionDisclaimerLink.click();
+            waitForSpecificSeconds(1);
+            assert (AarpVisionDisclaimerContents.isDisplayed() && (!AarpVisionDisclaimerContents.getText().isEmpty()));
+            QuestionsPlus.click();
+            assertThat( TechnicalSupport.getText(), equalTo("1-866-388-9919"));
+            QuestionsMinus.click();
+        }
     }
 
     public void verifyPlanDocumentsContents(String PlanDocStatus){
@@ -183,7 +193,7 @@ public class Plan_F_Page extends YourPlanPage{
         }
         PrivacyAuthorizationPdf.click();
         closeSpecificBrowser(1);
-    }    
+    }
     public void verifyFileAClaimDocumentsContents(){
         if(!FileAClaimMinus.isDisplayed()){
             FileAClaimPlus.click();
@@ -195,7 +205,6 @@ public class Plan_F_Page extends YourPlanPage{
         closeSpecificBrowser(1);
     }
     public void isAt() {
-        
         assertThat(YourPlanF.getText(), equalTo("AARP Medicare Supplement Plan F"));
     }
 }

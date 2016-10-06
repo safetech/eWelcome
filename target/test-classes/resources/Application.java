@@ -33,6 +33,35 @@ public class Application {
     public String PlanInformation;
     public String FirstName;
     public String UserName;
+    public Boolean SiverSneakers;
+    public Boolean NurseHealthLine;
+    public Boolean SavingsOnVisionContents;
+    
+    public Boolean getSavingsOnVisionContents() {
+        return SavingsOnVisionContents;
+    }
+
+    public void setSavingsOnVisionContents(Boolean savingsOnVisionContents) {
+        SavingsOnVisionContents = savingsOnVisionContents;
+    }
+
+    
+
+    public Boolean getNurseHealthLine() {
+        return NurseHealthLine;
+    }
+
+    public void setNurseHealthLine(Boolean nurseHealthLine) {
+        NurseHealthLine = nurseHealthLine;
+    }
+
+    public Boolean getSiverSneakers() {
+        return SiverSneakers;
+    }
+
+    public void setSiverSneakers(Boolean siverSneakers) {
+        SiverSneakers = siverSneakers;
+    }
 
     public String getUserName() {
         return UserName;

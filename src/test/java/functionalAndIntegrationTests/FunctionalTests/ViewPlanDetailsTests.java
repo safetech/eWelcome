@@ -12,8 +12,6 @@ import resources.pages.*;
 
 import java.sql.SQLException;
 
-import static resources.queries.InsertionQueries.insertIntoIsPerf;
-
 public class ViewPlanDetailsTests extends CQBaseIntegrationTest {
 
     @Page public WelcomePage welcomePage;
@@ -35,13 +33,17 @@ public class ViewPlanDetailsTests extends CQBaseIntegrationTest {
     }
     @Test
     public void SignInToVerifyPlan_F_Tests() throws SQLException {
-        insertIntoIsPerf("145193952","Y");
+        app.setSiverSneakers(true);
+        app.setNurseHealthLine(true);
+        app.setSavingsOnVisionContents(true);
 
+//        insertIntoIsPerf("145193952","Y");
         app.setUserName("CA_Plan_F");
 //        app.setUserName("Automation12");
+//        app.setUserName("preferenceDtc1");
         goTo(welcomePage);
         signInPage.fillAndSubmit(app);
-        plan_f_page.clickAndVerify();
+        plan_f_page.clickAndVerify(app);
         plan_f_page.Logout();
     }
     @Test

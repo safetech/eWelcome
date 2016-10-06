@@ -10,7 +10,7 @@ import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
 
 public class SignInPage extends WelcomePage{
-    @FindBy(xpath = "html/body/div[1]/div[1]/main/h1") FluentWebElement pageTitle;
+    @FindBy(id = "signInOptumID") FluentWebElement pageTitle;
     @FindBy(css = "#userNameId_input") FluentWebElement userName;    
     @FindBy(css = "#passwdId_input") FluentWebElement userPassword;
     FluentWebElement SignIn;
