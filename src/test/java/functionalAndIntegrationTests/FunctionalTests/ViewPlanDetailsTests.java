@@ -24,6 +24,7 @@ public class ViewPlanDetailsTests extends CQBaseIntegrationTest {
     @Page public Plan_XW_YW_VW_WW_Page plan_xw_yw_vw_ww_page;
     @Page public Plan_F_Select_Page plan_f_select_page;
     @Page public Plan_K_Page plan_k_page;
+    @Page public ProfileAndPreferencePage profileAndPreferencePage;
     public Faker faker;
 
     @Before
@@ -38,12 +39,14 @@ public class ViewPlanDetailsTests extends CQBaseIntegrationTest {
         app.setSavingsOnVisionContents(true);
 
 //        insertIntoIsPerf("145193952","Y");
-        app.setUserName("CA_Plan_F");
 //        app.setUserName("Automation12");
 //        app.setUserName("preferenceDtc1");
+        
+        app.setUserName("CA_Plan_F");
         goTo(welcomePage);
         signInPage.fillAndSubmit(app);
         plan_f_page.clickAndVerify(app);
+        profileAndPreferencePage.verifyProfileAndPrefences();
         plan_f_page.Logout();
     }
     @Test

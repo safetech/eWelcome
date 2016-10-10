@@ -14,6 +14,8 @@ public class YourPlanPage extends WelcomePage{
     @FindBy(xpath = "html/body/div[3]/div[1]/div[5]/div/div/div/div/div[2]/div[3]/div/div/div[3]/div[1]") FluentWebElement YourPlanDocuments;
     @FindBy(xpath = "html/body/div[3]/div[1]/div[5]/div/div/div/div/div[2]/div[3]/div/div/div[4]/div[1]") FluentWebElement ImportantInformation;
 
+    
+    
     public void isAt() {
         assertThat(pageTitle.getText(), equalTo("Your Plan"));
     }       
@@ -36,4 +38,5 @@ public void Logout() {
     assert(Welcome.getText().equals("Welcome!"));
     } 
 
+   
 }
