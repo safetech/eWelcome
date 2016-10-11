@@ -71,9 +71,7 @@ public class CQBaseIntegrationTest extends FluentTest {
     public WebDriver getDefaultDriver() {
 //
         if(PropertyUtils.getProperty( "Browser" ).equals( "Firefox" )){
-        ProfilesIni profile = new ProfilesIni();
-        FirefoxProfile ffprofile = profile.getProfile("Selenium");
-        
+            FirefoxProfile ffprofile = new FirefoxProfile(new File("C:\\temp\\Apps\\Firefox\\Profiles"));
             driver = new FirefoxDriver(ffprofile);
         //driver.manage().window().maximize();
         }else {

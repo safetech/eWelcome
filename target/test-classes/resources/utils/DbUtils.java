@@ -2,17 +2,21 @@ package resources.utils;
 
 import oracle.jdbc.pool.OracleDataSource;
 
+import java.io.IOException;
+import java.security.GeneralSecurityException;
 import java.sql.*;
 import java.util.HashMap;
 
 public class DbUtils {
 
-    public static HashMap<String, String> setSingleRecord(String query, String connectionString) throws SQLException {
+    public static HashMap<String, String> setSingleRecord(String query, String connectionString) throws SQLException,IOException,GeneralSecurityException {
 
         OracleDataSource ods = new OracleDataSource();
         ods.setURL(connectionString);
-        ods.setUser(System.getProperty("DBUN"));
-        ods.setPassword(System.getProperty("DBPW"));
+        ods.setUser(PropertyUtils.getProperty("DBUN"));
+      // String password=EncrytionAndDecryption.decrypt(System.getProperty("DBPW"));
+        ods.setPassword(EncrytionAndDecryption.decrypt(PropertyUtils.getProperty("DBPW")));
+      //  System.out.println(password);
         Connection conn = null;
         try {
             conn = ods.getConnection();
