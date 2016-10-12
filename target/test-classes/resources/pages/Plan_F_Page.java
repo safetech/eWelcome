@@ -64,9 +64,7 @@ public class Plan_F_Page extends YourPlanPage{
 
     @FindBy(xpath = "html/body/div[3]/div[1]/div[5]/div/div/div/div/div[2]/div[3]/div/div/div[1]/div[2]/div[1]")FluentWebElement YourPlanF;
     public void clickAndVerify(Application app){
-                
-        
-        
+
         isAt();
         hasPlanHeaders();
                 
@@ -86,13 +84,14 @@ public class Plan_F_Page extends YourPlanPage{
                 System.out.print(e);
             }
 
-
 //        verifyPlanDocumentsContents(PlanDocStatus);
         verifyOutlineOfCoverageDocumentsContents();
         verifyGuideToHealthDocumentsContents();
         verifyPrivacyAuthorizationDocumentsContents();
         verifyFileAClaimDocumentsContents();
-        
+        if(app.getMessages()){
+            Messages();
+        }
         myAArpMedicareLink.click();
         closeSpecificBrowser(1);
         assert( YourOnlineAccountPlus.isDisplayed());
@@ -207,4 +206,5 @@ public class Plan_F_Page extends YourPlanPage{
     public void isAt() {
         assertThat(YourPlanF.getText(), equalTo("AARP Medicare Supplement Plan F"));
     }
+
 }

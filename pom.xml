@@ -118,9 +118,10 @@
             </activation>
             <properties>
                 <ewelcome.url>https://member.uhcinfo-stg.uhc.com/#/</ewelcome.url>
-                <db.stage.connection>jdbc:oracle:thin:@(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=dbsrt1046.uhc.com)(PORT=1521))(CONNECT_DATA=(SERVER=DEDICATED)(SERVICE_NAME=cmp0ts17svc.uhc.com)))</db.stage.connection>
-                <db.username>QAAUTOREAD</db.username>
-                <db.password>Aut0mation1</db.password>
+                <!--<db.stage.connection>jdbc:oracle:thin:@(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=dbsrt1046.uhc.com)(PORT=1521))(CONNECT_DATA=(SERVER=DEDICATED)(SERVICE_NAME=cmp0ts17svc.uhc.com)))</db.stage.connection>-->
+                <db.stage.connection>jdbc:oracle:thin:@(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=orass0088.uhc.com)(PORT=1521))(CONNECT_DATA=(SERVER=DEDICATED)(SERVICE_NAME=acest02.uhc.com)))</db.stage.connection>
+                <db.username>uhg_001166756</db.username>
+                <db.password>2FX1qToitDDVKPwWs4Y85g==</db.password>
             </properties>
         </profile>
         <profile>
@@ -151,8 +152,8 @@
             <properties>
                 <ewelcome.url>https://member.uhcinfo-tst.uhc.com/#/</ewelcome.url>
                 <db.stage.connection>jdbc:oracle:thin:@(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=dbsrt1046.uhc.com)(PORT=1521))(CONNECT_DATA=(SERVER=DEDICATED)(SERVICE_NAME=cmp0ts17svc.uhc.com)))</db.stage.connection>
-                <db.username>QAAUTOREAD</db.username>
-                <db.password>Aut0mation1</db.password>
+                <db.username>uhg_001166756</db.username>
+                <db.password>2FX1qToitDDVKPwWs4Y85g==</db.password>
             </properties>
         </profile>
     </profiles>

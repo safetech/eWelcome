@@ -1,0 +1,12 @@
+*.bak
+target
+*.iml
+.idea
+*.vlt
+.settings
+*.classpath
+*.project
+*.pdf
+.DS_Store
+.brackets.json
+ole-qa-ui/src/test/java/functionalAndIntegrationTests/agent/ridersSubmissionTests/MinnesotaGoodAndBadFunctionalTest.java___jb_tmp___

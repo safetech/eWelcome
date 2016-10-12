@@ -2,6 +2,7 @@ package resources.pages;
 
 import org.fluentlenium.core.domain.FluentWebElement;
 import org.openqa.selenium.support.FindBy;
+import resources.Application;
 
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -14,10 +15,12 @@ public class Plan_NW_Page extends Plan_UW_Page{
     @FindBy(xpath = "html/body/div[3]/div[1]/div[5]/div/div/div/div/div[2]/div[3]/div/div/div[1]/div[2]/div[2]")FluentWebElement YourPlanContents;
     @FindBy(xpath = "html/body/div[3]/div[1]/div[5]/div/div/div/div/div[2]/div[3]/div/div/div[1]/div[2]/div[2]")FluentWebElement YourPlanStartDateContents;
     @FindBy(xpath = "html/body/div[3]/div[1]/div[5]/div/div/div/div/div[2]/div[3]/div/div/div[1]/div[2]/div[1]")FluentWebElement YourPlanNW;
-        public void clickAndVerify(){
+        public void clickAndVerify(Application app){
        isAt();
         hasPlanHeaders();
-
+            if(app.getMessages()){
+                Messages();
+            }
             try{
                 if(Request.isEnabled()) {
                     Request.click();

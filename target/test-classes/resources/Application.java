@@ -36,7 +36,16 @@ public class Application {
     public Boolean SiverSneakers;
     public Boolean NurseHealthLine;
     public Boolean SavingsOnVisionContents;
-    
+    public Boolean Messages;
+
+    public Boolean getMessages() {
+        return Messages;
+    }
+
+    public void setMessages(Boolean messages) {
+        Messages = messages;
+    }
+
     public Boolean getSavingsOnVisionContents() {
         return SavingsOnVisionContents;
     }

@@ -13,6 +13,10 @@ public class YourPlanPage extends WelcomePage{
     @FindBy(xpath = "html/body/div[3]/div[1]/div[5]/div/div/div/div/div[2]/div[3]/div/div/div[2]/div[1]") FluentWebElement YourPlanStartDate;
     @FindBy(xpath = "html/body/div[3]/div[1]/div[5]/div/div/div/div/div[2]/div[3]/div/div/div[3]/div[1]") FluentWebElement YourPlanDocuments;
     @FindBy(xpath = "html/body/div[3]/div[1]/div[5]/div/div/div/div/div[2]/div[3]/div/div/div[4]/div[1]") FluentWebElement ImportantInformation;
+    @FindBy(xpath = "html/body/div[3]/div[1]/div[5]/div/div/div/div/div[2]/div[1]/div") FluentWebElement Messages;
+    @FindBy(xpath = "html/body/div[3]/div[1]/div[5]/div/div/div/div/div[2]/div[1]/div/img[3]") FluentWebElement MessagesPlus;
+    @FindBy(xpath = "html/body/div[3]/div[1]/div[5]/div/div/div/div/div[2]/div[1]/div/img[5]") FluentWebElement MessagesMinus;
+    @FindBy(xpath = "html/body/div[3]/div[1]/div[5]/div/div/div/div/div[2]/div[1]/div/div/div/p") FluentWebElement MessagesContents;
 
     
     
@@ -37,6 +41,14 @@ public void Logout() {
     WebElement Welcome=getDriver().findElement(By.xpath("html/body/div[3]/div[1]/div/div[2]/div/section/div[1]/div/h1"));
     assert(Welcome.getText().equals("Welcome!"));
     } 
-
-   
+    
+    public void Messages() {
+        MessagesPlus.click();
+        waitForSpecificSeconds(1);
+        assert(!MessagesContents.getText().equals(""));
+        MessagesMinus.click();
+        waitForSpecificSeconds(1);
+        assert(!MessagesContents.isDisplayed());
+    } 
+    
 }

@@ -1,13 +1,24 @@
 package resources.pages;
 
+import org.fluentlenium.core.annotation.Page;
 import org.fluentlenium.core.domain.FluentWebElement;
 import org.openqa.selenium.support.FindBy;
+import resources.Application;
+
+import java.io.IOException;
+import java.security.GeneralSecurityException;
+import java.sql.SQLException;
+
+import static resources.queries.DeletionQueries.deleteIsPerf;
+import static resources.queries.InsertionQueries.insertIntoIsPerf;
 
 public class ProfileAndPreferencePage extends WelcomePage {
     @FindBy(xpath = "html/body/div[3]/header/div/div[3]/section[2]/button") FluentWebElement More; 
     @FindBy(xpath = "html/body/div[3]/header/div/div[3]/section[2]/ul/li[1]/a") FluentWebElement ProfileAndPreferences; 
     @FindBy(xpath = "html/body/div[3]/div[1]/div[2]/div/div/div[2]/div/div/div/div[1]/div[2]/div/div[4]/a") FluentWebElement eMailEditLink; 
     @FindBy(xpath = "html/body/div[3]/header/div/div[3]/section[2]/ul/li[2]/a") FluentWebElement MyPlanInformation; 
+    @FindBy(xpath = "html/body/div[3]/header/div/div[3]/section[2]/ul/li[3]/a") FluentWebElement Logout; 
+    @FindBy(xpath = "html/body/div[3]/div[1]/div/div[2]/div/section/div[2]/div/div[2]/a") FluentWebElement Login; 
         
     @FindBy(xpath = "html/body/div[3]/div[1]/div[2]/div/div/div[2]/div/div/div/div[1]/div[3]/div/form/div[3]/div/button[2]") FluentWebElement eMailSaveButton; 
     @FindBy(xpath = "html/body/div[3]/div[1]/div[2]/div/div/div[1]/section/div[1]/p") FluentWebElement PageTitle; 
@@ -27,8 +38,40 @@ public class ProfileAndPreferencePage extends WelcomePage {
     @FindBy(xpath = "html/body/div[3]/div[1]/div[2]/div/div/div[2]/div/div/div/div[2]/div[2]/div[5]/div[2]/div/div/div[3]/div/button[1]") FluentWebElement DeliveryCancelButton; 
     @FindBy(xpath = "html/body/div[3]/div[1]/div[2]/div/div/div[2]/div/div/div/div[2]/div[2]/div[1]/div[1]/span[1]") FluentWebElement SuccessMessage; 
     @FindBy(xpath = "html/body/div[3]/div[1]/div[2]/div/div/div[2]/div/div/div/div[2]/div[2]/div[5]/div[2]/div/div/div[2]/span/p") FluentWebElement USMailMessage; 
-    @FindBy(xpath = "html/body/div[3]/div[1]/div[2]/div/div/div[2]/div/div/div/div[2]/div[2]/div[5]/div[2]/div/div/div[1]/p[2]") FluentWebElement DeliveryErrorMessage; 
+    @FindBy(xpath = "html/body/div[3]/div[1]/div[2]/div/div/div[2]/div/div/div/div[2]/div[2]/div[5]/div[2]/div/div/div[1]/p[2]") FluentWebElement DeliveryErrorMessage;
+   
+    @FindBy(xpath = "html/body/div[3]/div[1]/div[5]/div/div/div/div/div[2]/div[3]/div/div/div[3]/div[2]/div[1]/div[4]/p[1]") FluentWebElement PlanDocumentContents;
+
+    @Page public SignInPage signInPage;
     
+    
+    public void verifyPreferenceChoice(Application app) throws GeneralSecurityException, SQLException, IOException {
+        More.click();
+        ProfileAndPreferences.click();
+        isAt();
+        DeliverPreferenceEdit.click();
+        assert(DeliveryUsMail.isSelected());
+        DeliveryCancelButton.click();
+        insertIntoIsPerf("145193952","Y");
+        More.click();
+        MyPlanInformation.click();
+        More.click();
+        Logout.click();
+        getDriver().switchTo().alert().accept();
+        waitForSpecificSeconds(2);
+        signInPage.fillAndSubmit(app);
+        waitForSpecificSeconds(1);
+        assert (PlanDocumentContents.getText().equals("If you would like to request this material, please click the \"request\" button. Your material will be generated within 2-4 days and you will receive an email when you can view your documents."));
+        More.click();
+        ProfileAndPreferences.click();
+        DeliverPreferenceEdit.click();
+        waitForSpecificSeconds(2);
+        assert(DeliverOnline.isSelected());
+        DeliveryCancelButton.click();
+        deleteIsPerf("145193952");
+        More.click();
+        MyPlanInformation.click();
+    }
     public  void verifyProfileAndPrefences() {
         More.click();
         ProfileAndPreferences.click();

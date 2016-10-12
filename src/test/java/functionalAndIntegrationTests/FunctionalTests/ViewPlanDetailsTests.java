@@ -10,6 +10,8 @@ import org.openqa.selenium.By;
 import resources.Application;
 import resources.pages.*;
 
+import java.io.IOException;
+import java.security.GeneralSecurityException;
 import java.sql.SQLException;
 
 public class ViewPlanDetailsTests extends CQBaseIntegrationTest {
@@ -25,6 +27,7 @@ public class ViewPlanDetailsTests extends CQBaseIntegrationTest {
     @Page public Plan_F_Select_Page plan_f_select_page;
     @Page public Plan_K_Page plan_k_page;
     @Page public ProfileAndPreferencePage profileAndPreferencePage;
+    @Page public Plan_My_Page plan_my_page;
     public Faker faker;
 
     @Before
@@ -33,12 +36,12 @@ public class ViewPlanDetailsTests extends CQBaseIntegrationTest {
         faker = new Faker(  );
     }
     @Test
-    public void SignInToVerifyPlan_F_Tests() throws SQLException {
+    public void SignInToVerifyPlan_F_Tests() throws SQLException, IOException, GeneralSecurityException {
         app.setSiverSneakers(true);
         app.setNurseHealthLine(true);
         app.setSavingsOnVisionContents(true);
-
-//        insertIntoIsPerf("145193952","Y");
+        app.setMessages(true);
+        //deleteIsPerf("145193952");
 //        app.setUserName("Automation12");
 //        app.setUserName("preferenceDtc1");
         
@@ -46,19 +49,22 @@ public class ViewPlanDetailsTests extends CQBaseIntegrationTest {
         goTo(welcomePage);
         signInPage.fillAndSubmit(app);
         plan_f_page.clickAndVerify(app);
-        profileAndPreferencePage.verifyProfileAndPrefences();
+        profileAndPreferencePage.verifyPreferenceChoice(app);
         plan_f_page.Logout();
+        
     }
     @Test
     public void SignInToVerifyPlan_NW_OW_Tests(){
         getDriver().manage().deleteAllCookies();
+        app.setMessages(true);
         app.setUserName("WI_BasicCoPayRider1_NW_OW");
 //        app.setUserName("Automation13");
         goTo(welcomePage);
         signInPage.fillAndSubmit(app);
-        plan_nw_page.clickAndVerify();
+        plan_nw_page.clickAndVerify(app);
         getDriver().findElement(By.xpath("html/body/div[3]/div[1]/div[5]/div/div/div/div/div[2]/div[2]/form/ul/li[2]/a/p[1]")).click();
         plan_ow_page.clickAndVerify();
+        profileAndPreferencePage.verifyProfileAndPrefences();
         plan_ow_page.Logout();
     }
     @Test
@@ -113,6 +119,19 @@ public class ViewPlanDetailsTests extends CQBaseIntegrationTest {
         signInPage.fillAndSubmit(app);
         plan_k_page.clickAndVerify();
         plan_k_page.Logout();
+    }
+    @Test
+    public void SignInToVerifyPlan_MY_Tests(){
+        app.setSiverSneakers(false);
+        app.setNurseHealthLine(true);
+        app.setSavingsOnVisionContents(true);
+        app.setUserName("MA_PlanSupplement1");
+
+        goTo(welcomePage);
+        signInPage.fillAndSubmit(app);
+        plan_my_page.clickAndVerify(app);
+        profileAndPreferencePage.verifyProfileAndPrefences();
+        plan_my_page.Logout();
     }
 }
  
