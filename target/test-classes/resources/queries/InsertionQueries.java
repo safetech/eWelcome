@@ -2,15 +2,13 @@ package resources.queries;
 
 import resources.utils.DateUtils;
 import resources.utils.DbUtils;
-import resources.utils.PropertyUtils;
 
-import java.io.IOException;
-import java.security.GeneralSecurityException;
 import java.sql.SQLException;
 
 public class InsertionQueries {
-//    String SYS1_TST = "jdbc:oracle:thin:@(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=dbsrt0623.uhc.com)(PORT=1521))(CONNECT_DATA=(SERVER=DEDICATED)(SERVICE_NAME=ace0ts00svc.uhc.com)))";
-//   public static String STG_ENV = "jdbc:oracle:thin:@(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=orass0088.uhc.com)(PORT=1521))(CONNECT_DATA=(SERVER=DEDICATED)(SERVICE_NAME=acest02.uhc.com)))";
+
+    String SYS1_TST = "jdbc:oracle:thin:@(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=dbsrt0623.uhc.com)(PORT=1521))(CONNECT_DATA=(SERVER=DEDICATED)(SERVICE_NAME=ace0ts00svc.uhc.com)))";
+   public static String STG_ENV = "jdbc:oracle:thin:@(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=orass0088.uhc.com)(PORT=1521))(CONNECT_DATA=(SERVER=DEDICATED)(SERVICE_NAME=acest02.uhc.com)))";
 
     String currentDate = DateUtils.DD_MMM_YYYY_FORMAT.format(new java.util.Date());
 
@@ -27,11 +25,10 @@ public class InsertionQueries {
     public String teardownTestData = "delete is_prefs.ecomm_transaction where transaction_id in ('%s')";
     public String teardownTestPrefData = "delete is_prefs.ecomm_person_preference where txn_id in ('%s')";
 
-    public static void insertIntoIsPerf(String User_Id, String Yes_No) throws SQLException, IOException, GeneralSecurityException {
+    public static void insertIntoIsPerf(String User_Id, String Yes_No) throws SQLException {
         String query = String.format(insertTestData, User_Id, Yes_No );
         System.out.println("------_____----->"+ query);
-        DbUtils.setSingleRecord(query, PropertyUtils.getProperty("compas.db"));
+        DbUtils.setSingleRecord(query, STG_ENV);
     }
-
 
 }

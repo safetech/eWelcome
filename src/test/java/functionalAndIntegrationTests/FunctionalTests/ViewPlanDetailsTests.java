@@ -10,11 +10,7 @@ import org.openqa.selenium.By;
 import resources.Application;
 import resources.pages.*;
 
-import java.io.IOException;
-import java.security.GeneralSecurityException;
 import java.sql.SQLException;
-
-import static resources.queries.InsertionQueries.insertIntoIsPerf;
 
 public class ViewPlanDetailsTests extends CQBaseIntegrationTest {
 
@@ -28,7 +24,6 @@ public class ViewPlanDetailsTests extends CQBaseIntegrationTest {
     @Page public Plan_XW_YW_VW_WW_Page plan_xw_yw_vw_ww_page;
     @Page public Plan_F_Select_Page plan_f_select_page;
     @Page public Plan_K_Page plan_k_page;
-    @Page public Plan_MY_Page plan_my_page;
     @Page public ProfileAndPreferencePage profileAndPreferencePage;
     public Faker faker;
 
@@ -38,11 +33,12 @@ public class ViewPlanDetailsTests extends CQBaseIntegrationTest {
         faker = new Faker(  );
     }
     @Test
-    public void SignInToVerifyPlan_F_Tests() throws SQLException, IOException, GeneralSecurityException {
+    public void SignInToVerifyPlan_F_Tests() throws SQLException {
         app.setSiverSneakers(true);
         app.setNurseHealthLine(true);
         app.setSavingsOnVisionContents(true);
-        //insertIntoIsPerf("145193952","Y");
+
+//        insertIntoIsPerf("145193952","Y");
 //        app.setUserName("Automation12");
 //        app.setUserName("preferenceDtc1");
         
@@ -117,19 +113,6 @@ public class ViewPlanDetailsTests extends CQBaseIntegrationTest {
         signInPage.fillAndSubmit(app);
         plan_k_page.clickAndVerify();
         plan_k_page.Logout();
-    }
-    @Test
-    public void SignInToVerifyPlan_MY_Tests(){
-        app.setSiverSneakers(false);
-        app.setNurseHealthLine(true);
-        app.setSavingsOnVisionContents(true);
-        app.setUserName("MA_PlanSupplement1");
-
-        goTo(welcomePage);
-        signInPage.fillAndSubmit(app);
-        plan_my_page.clickAndVerify(app);
-        profileAndPreferencePage.verifyProfileAndPrefences();
-        plan_my_page.Logout();
     }
 }
  
