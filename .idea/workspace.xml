@@ -1,33 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4e2b1599-62f3-4f6a-abc6-15aac3d790f4" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/java/resources/pages/Plan_MY_Page.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/java/resources/utils/EncrytionAndDecryption.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_oracle_ojdbc6_11_2_0_3_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_oracle_ojdbc6_11_2_0_1_0.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/surefire-reports/screenshot-SignInToVerifyPlan_F_Tests.png" afterPath="$PROJECT_DIR$/target/surefire-reports/screenshot-SignInToVerifyPlan_F_Tests.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/test-classes/functionalAndIntegrationTests/CQBaseIntegrationTest.class" afterPath="$PROJECT_DIR$/target/test-classes/functionalAndIntegrationTests/CQBaseIntegrationTest.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/test-classes/functionalAndIntegrationTests/FunctionalTests/ViewPlanDetailsTests.class" afterPath="$PROJECT_DIR$/target/test-classes/functionalAndIntegrationTests/FunctionalTests/ViewPlanDetailsTests.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/test-classes/resources/pages/WizardPage.class" afterPath="$PROJECT_DIR$/target/test-classes/resources/pages/WizardPage.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/test-classes/resources/queries/InsertionQueries.class" afterPath="$PROJECT_DIR$/target/test-classes/resources/queries/InsertionQueries.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/test-classes/resources/utils/DbUtils.class" afterPath="$PROJECT_DIR$/target/test-classes/resources/utils/DbUtils.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/compiler.xml" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/eWelcome-qa-ui.iml" afterPath="$PROJECT_DIR$/eWelcome-qa-ui.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/application.properties" afterPath="$PROJECT_DIR$/src/test/java/application.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/functionalAndIntegrationTests/CQBaseIntegrationTest.java" afterPath="$PROJECT_DIR$/src/test/java/functionalAndIntegrationTests/CQBaseIntegrationTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/functionalAndIntegrationTests/FunctionalTests/ViewPlanDetailsTests.java" afterPath="$PROJECT_DIR$/src/test/java/functionalAndIntegrationTests/FunctionalTests/ViewPlanDetailsTests.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/resources/pages/WizardPage.java" afterPath="$PROJECT_DIR$/src/test/java/resources/pages/WizardPage.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/resources/queries/InsertionQueries.java" afterPath="$PROJECT_DIR$/src/test/java/resources/queries/InsertionQueries.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/resources/utils/DbUtils.java" afterPath="$PROJECT_DIR$/src/test/java/resources/utils/DbUtils.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/test-classes/application.properties" afterPath="$PROJECT_DIR$/target/test-classes/application.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/test-classes/functionalAndIntegrationTests/CQBaseIntegrationTest.java" afterPath="$PROJECT_DIR$/target/test-classes/functionalAndIntegrationTests/CQBaseIntegrationTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/test-classes/functionalAndIntegrationTests/FunctionalTests/ViewPlanDetailsTests.java" afterPath="$PROJECT_DIR$/target/test-classes/functionalAndIntegrationTests/FunctionalTests/ViewPlanDetailsTests.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/test-classes/resources/pages/WizardPage.java" afterPath="$PROJECT_DIR$/target/test-classes/resources/pages/WizardPage.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/test-classes/resources/queries/InsertionQueries.java" afterPath="$PROJECT_DIR$/target/test-classes/resources/queries/InsertionQueries.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/test-classes/resources/utils/DbUtils.java" afterPath="$PROJECT_DIR$/target/test-classes/resources/utils/DbUtils.java" />
-    </list>
+    <list default="true" id="4e2b1599-62f3-4f6a-abc6-15aac3d790f4" name="Default" comment="" />
     <ignored path="eWelcome-qa-ui.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/out/" />
@@ -64,8 +38,8 @@
       <file leaf-file-name="pom.xml" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.49671054">
-              <caret line="21" column="21" selection-start-line="16" selection-start-column="8" selection-end-line="21" selection-end-column="21" />
+            <state vertical-scroll-proportion="0.7939914">
+              <caret line="23" column="46" selection-start-line="23" selection-start-column="46" selection-end-line="23" selection-end-column="46" />
               <folding />
             </state>
           </provider>
@@ -1074,7 +1048,7 @@
       <workItem from="1475848136570" duration="13550000" />
       <workItem from="1476123067468" duration="2000" />
       <workItem from="1476123831431" duration="4364000" />
-      <workItem from="1476193885327" duration="8866000" />
+      <workItem from="1476193885327" duration="10063000" />
     </task>
     <servers />
   </component>
@@ -1111,11 +1085,11 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="196436000" />
+    <option name="totallyTimeSpent" value="197633000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="0" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -1125,7 +1099,7 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14069591" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32843137" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3267974" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.17217524" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.53104573" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27685326" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -1133,7 +1107,7 @@
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.41503268" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.41503268" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -1604,8 +1578,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.49671054">
-          <caret line="21" column="21" selection-start-line="16" selection-start-column="8" selection-end-line="21" selection-end-column="21" />
+        <state vertical-scroll-proportion="0.7939914">
+          <caret line="23" column="46" selection-start-line="23" selection-start-column="46" selection-end-line="23" selection-end-column="46" />
           <folding />
         </state>
       </provider>
