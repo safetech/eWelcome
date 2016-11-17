@@ -33,7 +33,7 @@ public class Application {
     public String PlanInformation;
     public String FirstName;
     public String UserName;
-    public Boolean SiverSneakers;
+    public Boolean SilverSneakers;
     public Boolean NurseHealthLine;
     public Boolean SavingsOnVisionContents;
     public Boolean Messages;
@@ -64,12 +64,12 @@ public class Application {
         NurseHealthLine = nurseHealthLine;
     }
 
-    public Boolean getSiverSneakers() {
-        return SiverSneakers;
+    public Boolean getSilverSneakers() {
+        return SilverSneakers;
     }
 
-    public void setSiverSneakers(Boolean siverSneakers) {
-        SiverSneakers = siverSneakers;
+    public void setSilverSneakers(Boolean silverSneakers) {
+        SilverSneakers = silverSneakers;
     }
 
     public String getUserName() {

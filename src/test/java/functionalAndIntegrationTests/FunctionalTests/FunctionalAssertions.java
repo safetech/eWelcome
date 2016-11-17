@@ -26,7 +26,7 @@ public class FunctionalAssertions extends CQBaseIntegrationTest {
     }
     @Test
     public void functionalTest(){
-        app.setSiverSneakers(true);
+        app.setSilverSneakers(true);
         app.setNurseHealthLine(true);
         app.setSavingsOnVisionContents(true);
 

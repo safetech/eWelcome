@@ -3,6 +3,7 @@ package resources.pages;
 import org.fluentlenium.core.domain.FluentWebElement;
 import org.openqa.selenium.support.FindBy;
 import resources.Application;
+import resources.WizardPage;
 import resources.utils.PropertyUtils;
 
 import static org.hamcrest.CoreMatchers.equalTo;

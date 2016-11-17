@@ -14,6 +14,8 @@ import java.io.IOException;
 import java.security.GeneralSecurityException;
 import java.sql.SQLException;
 
+import static resources.queries.DeletionQueries.deleteIsPerf;
+
 public class ViewPlanDetailsTests extends CQBaseIntegrationTest {
 
     @Page public WelcomePage welcomePage;
@@ -37,26 +39,25 @@ public class ViewPlanDetailsTests extends CQBaseIntegrationTest {
     }
     @Test
     public void SignInToVerifyPlan_F_Tests() throws SQLException, IOException, GeneralSecurityException {
-        app.setSiverSneakers(true);
+        app.setSilverSneakers(true);
         app.setNurseHealthLine(true);
         app.setSavingsOnVisionContents(true);
-        app.setMessages(true);
-        //deleteIsPerf("145193952");
-//        app.setUserName("Automation12");
-//        app.setUserName("preferenceDtc1");
+        app.setMessages(false);
+        deleteIsPerf("145193952");
+//        app.setUserName("Automation12"); // test CA
+//        app.setUserName("preferenceDtc1"); // FL
         
-        app.setUserName("CA_Plan_F");
+        app.setUserName("CA_Plan_F"); //CA
         goTo(welcomePage);
         signInPage.fillAndSubmit(app);
         plan_f_page.clickAndVerify(app);
         profileAndPreferencePage.verifyPreferenceChoice(app);
         plan_f_page.Logout();
-        
     }
     @Test
     public void SignInToVerifyPlan_NW_OW_Tests(){
         getDriver().manage().deleteAllCookies();
-        app.setMessages(true);
+        app.setMessages(false);
         app.setUserName("WI_BasicCoPayRider1_NW_OW");
 //        app.setUserName("Automation13");
         goTo(welcomePage);
@@ -64,11 +65,12 @@ public class ViewPlanDetailsTests extends CQBaseIntegrationTest {
         plan_nw_page.clickAndVerify(app);
         getDriver().findElement(By.xpath("html/body/div[3]/div[1]/div[5]/div/div/div/div/div[2]/div[2]/form/ul/li[2]/a/p[1]")).click();
         plan_ow_page.clickAndVerify();
-        profileAndPreferencePage.verifyProfileAndPrefences();
+        profileAndPreferencePage.verifyProfileAndPreferences();
         plan_ow_page.Logout();
     }
     @Test
     public void SignInToVerifyPlan_UW_Tests(){
+        getDriver().manage().deleteAllCookies();
 //        app.setUserName("Automation14");
         app.setUserName("MN_ExtendedBasicPlan_UW");
         goTo(welcomePage);
@@ -78,6 +80,7 @@ public class ViewPlanDetailsTests extends CQBaseIntegrationTest {
     }     
     @Test
     public void SignInToVerifyPlan_TW_XW_YW_Tests(){
+        getDriver().manage().deleteAllCookies();
         app.setUserName("BasicPlan_Rider2345_3");
 //        app.setUserName("Automation16");
         goTo(welcomePage);
@@ -92,6 +95,7 @@ public class ViewPlanDetailsTests extends CQBaseIntegrationTest {
     }    
     @Test
     public void SignInToVerifyPlan_TW_YW_VW_WW_Tests(){
+        getDriver().manage().deleteAllCookies();
         app.setUserName("MN_BasicPlanRider_234");
         goTo(welcomePage);
         signInPage.fillAndSubmit(app);
@@ -106,6 +110,7 @@ public class ViewPlanDetailsTests extends CQBaseIntegrationTest {
     }
     @Test
     public void SignInToVerifyPlan_F_Select_Tests(){
+        getDriver().manage().deleteAllCookies();
         app.setUserName("FL_SelectPlan_F");
         goTo(welcomePage);
         signInPage.fillAndSubmit(app);
@@ -114,6 +119,7 @@ public class ViewPlanDetailsTests extends CQBaseIntegrationTest {
     }    
     @Test
     public void SignInToVerifyPlan_K_Tests(){
+        getDriver().manage().deleteAllCookies();
         app.setUserName("PA_Plan_K");
         goTo(welcomePage);
         signInPage.fillAndSubmit(app);
@@ -122,15 +128,17 @@ public class ViewPlanDetailsTests extends CQBaseIntegrationTest {
     }
     @Test
     public void SignInToVerifyPlan_MY_Tests(){
-        app.setSiverSneakers(false);
+        getDriver().manage().deleteAllCookies();
+        app.setSilverSneakers(false);
         app.setNurseHealthLine(true);
         app.setSavingsOnVisionContents(true);
+        app.setMessages(false);
         app.setUserName("MA_PlanSupplement1");
 
         goTo(welcomePage);
         signInPage.fillAndSubmit(app);
         plan_my_page.clickAndVerify(app);
-        profileAndPreferencePage.verifyProfileAndPrefences();
+        profileAndPreferencePage.verifyProfileAndPreferences();
         plan_my_page.Logout();
     }
 }

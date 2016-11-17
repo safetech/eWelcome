@@ -117,7 +117,8 @@ public class Plan_F_Page extends YourPlanPage{
             NurseHealthLinkMinus.click();
             waitForSpecificSeconds(1);
         }
-        if(app.getSiverSneakers()){
+        
+        if(app.getSilverSneakers()){
             assert (SilverSneakersContents.isDisplayed() && SilverSneakersPlus.isDisplayed());
             SilverSneakersFitnessLink.click();
             closeSpecificBrowser(1);
@@ -135,6 +136,7 @@ public class Plan_F_Page extends YourPlanPage{
             SilverSneakersMinus.click();
             waitForSpecificSeconds(1);
         }
+        
         if(app.getSavingsOnVisionContents()){
             assert (SavingsOnVisionContents.isDisplayed() && 
                     (!SavingsOnVisionContents.getText().equals("")) && 

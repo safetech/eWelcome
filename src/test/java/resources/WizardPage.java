@@ -1,4 +1,4 @@
-package resources.pages;
+package resources;
 
 import com.github.javafaker.Faker;
 import org.fluentlenium.core.FluentPage;

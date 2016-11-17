@@ -49,7 +49,7 @@ public class Plan_OW_Page extends Plan_UW_Page{
             }
 
 
-        verifyPlanDocumentsContents();
+        //verifyPlanDocumentsContents();
         verify_WI_GuideToHealthDocumentsContents();
         verifyPrivacyAuthorizationDocumentsContents();
         verifyFileAClaimDocumentsContents();

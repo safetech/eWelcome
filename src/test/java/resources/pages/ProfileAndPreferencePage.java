@@ -72,16 +72,16 @@ public class ProfileAndPreferencePage extends WelcomePage {
         More.click();
         MyPlanInformation.click();
     }
-    public  void verifyProfileAndPrefences() {
+    public void verifyProfileAndPreferences() {
         More.click();
         ProfileAndPreferences.click();
         isAt();
-        ProfileAndPrefencesEmail();
-        ProfileAndPrefencesDelivery();
+        ProfileAndPreferencesEmail();
+        ProfileAndPreferencesDelivery();
         More.click();
         MyPlanInformation.click();
     }
-    public void ProfileAndPrefencesEmail() {
+    public void ProfileAndPreferencesEmail() {
         
         assert(!eMail.isDisplayed() && !ConfirmEMail.isDisplayed());        
         eMailEditLink.click();
@@ -92,7 +92,7 @@ public class ProfileAndPreferencePage extends WelcomePage {
         eMailAddress.getText().contains("@");
     }    
     
-    public void ProfileAndPrefencesDelivery() {
+    public void ProfileAndPreferencesDelivery() {
         assert(!DeliverOnline.isEnabled());
         assert(!DeliveryUsMail.isEnabled());
         DeliverPreferenceEdit.click();
@@ -118,7 +118,7 @@ public class ProfileAndPreferencePage extends WelcomePage {
         ProfileAndPreferences.click();
         isAt();
         functionalProfileAndPrefencesEmail();
-        functionalProfileAndPrefencesDelivery();
+        functionalProfileAndPreferencesDelivery();
         More.click();
         MyPlanInformation.click();
     }
@@ -169,7 +169,7 @@ public class ProfileAndPreferencePage extends WelcomePage {
         eMailCancelButton.click();
     }
 
-    public void functionalProfileAndPrefencesDelivery() {
+    public void functionalProfileAndPreferencesDelivery() {
         assert(!DeliverOnline.isEnabled());
         assert(!DeliveryUsMail.isEnabled());
         DeliverPreferenceEdit.click();
